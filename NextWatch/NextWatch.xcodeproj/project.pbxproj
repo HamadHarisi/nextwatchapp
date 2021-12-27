@@ -16,13 +16,14 @@
 		C6115AEB27779065005AF49D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C6115AEA27779065005AF49D /* FirebaseFirestore */; };
 		C6115AED27779065005AF49D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C6115AEC27779065005AF49D /* FirebaseStorage */; };
 		C6115AF127779CC0005AF49D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6115AF027779CC0005AF49D /* LoginViewController.swift */; };
-		C6115AF327779CE9005AF49D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6115AF227779CE9005AF49D /* SignInViewController.swift */; };
+		C6115AF327779CE9005AF49D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6115AF227779CE9005AF49D /* SignupViewController.swift */; };
 		C6115AF527779CFF005AF49D /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6115AF427779CFF005AF49D /* LandViewController.swift */; };
 		C6115AFB2778604E005AF49D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6115AFA2778604E005AF49D /* GoogleService-Info.plist */; };
 		C6151ED02779E3B00011565E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ECF2779E3B00011565E /* Activity.swift */; };
 		C6151ED22779E8340011565E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED12779E8340011565E /* ImageView.swift */; };
 		C6151ED52779F5050011565E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED42779F5050011565E /* User.swift */; };
 		C6151ED72779F69D0011565E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED62779F69D0011565E /* Movie.swift */; };
+		C6151ED9277A2F670011565E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED8277A2F670011565E /* TextField.swift */; };
 		C6D8A2B12779A32D005FBD5B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */; };
 		C6D8A2B32779AE9A005FBD5B /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,13 +37,14 @@
 		C6115ADD277661F7005AF49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6115ADF277661F7005AF49D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6115AF027779CC0005AF49D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C6115AF227779CE9005AF49D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C6115AF227779CE9005AF49D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C6115AF427779CFF005AF49D /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
 		C6115AFA2778604E005AF49D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6151ECF2779E3B00011565E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		C6151ED12779E8340011565E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C6151ED42779F5050011565E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6151ED62779F69D0011565E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		C6151ED8277A2F670011565E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +115,8 @@
 		C6115AF82777A7AA005AF49D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C6115AF227779CE9005AF49D /* SignInViewController.swift */,
+				C6115AF227779CE9005AF49D /* SignupViewController.swift */,
+				C6151ED8277A2F670011565E /* TextField.swift */,
 				C6115AF427779CFF005AF49D /* LandViewController.swift */,
 				C6115AF027779CC0005AF49D /* LoginViewController.swift */,
 				C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */,
@@ -223,8 +226,9 @@
 				C6115AD2277661F7005AF49D /* AppDelegate.swift in Sources */,
 				C6115AD4277661F7005AF49D /* SceneDelegate.swift in Sources */,
 				C6D8A2B12779A32D005FBD5B /* AccountViewController.swift in Sources */,
+				C6151ED9277A2F670011565E /* TextField.swift in Sources */,
 				C6115AF127779CC0005AF49D /* LoginViewController.swift in Sources */,
-				C6115AF327779CE9005AF49D /* SignInViewController.swift in Sources */,
+				C6115AF327779CE9005AF49D /* SignupViewController.swift in Sources */,
 				C6D8A2B32779AE9A005FBD5B /* MoviesViewController.swift in Sources */,
 				C6151ED22779E8340011565E /* ImageView.swift in Sources */,
 				C6151ED02779E3B00011565E /* Activity.swift in Sources */,

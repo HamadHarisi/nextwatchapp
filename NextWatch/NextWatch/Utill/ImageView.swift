@@ -25,19 +25,19 @@ extension UIImageView
         {
             if let url = URL(string:urlString)
             {
-                DispatchQueue.global().async {
-                    if let data = try? Date(contentsOf: url)
-                    {
-                        DispatchQueue.main.async
-                        {
-                            if let dowloadedImage = UIImage(data: data)
-                            {
-                                imageCache.setObject(dowloadedImage, forKey: urlString as NSString)
-                                self.image = dowloadedImage
-                            }
-                        }
-                    }
-                }
+//                DispatchQueue.global().async {
+//                    if let data = try? Date(contentsOf: url)
+//                    {
+//                        DispatchQueue.main.async
+//                        {
+//                            if let dowloadedImage = UIImage(data: data)
+//                            {
+//                                imageCache.setObject(dowloadedImage, forKey: urlString as NSString)
+//                                self.image = dowloadedImage
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
     }

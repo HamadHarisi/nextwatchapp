@@ -20,6 +20,7 @@
 		C6115AF527779CFF005AF49D /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6115AF427779CFF005AF49D /* LandViewController.swift */; };
 		C6115AFB2778604E005AF49D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6115AFA2778604E005AF49D /* GoogleService-Info.plist */; };
 		C6D8A2B12779A32D005FBD5B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */; };
+		C6D8A2B32779AE9A005FBD5B /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C6115AF427779CFF005AF49D /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
 		C6115AFA2778604E005AF49D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				C6115AD7277661F7005AF49D /* Main.storyboard */,
-				C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */,
 				C6115ADC277661F7005AF49D /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -104,6 +105,8 @@
 				C6115AF227779CE9005AF49D /* SignInViewController.swift */,
 				C6115AF427779CFF005AF49D /* LandViewController.swift */,
 				C6115AF027779CC0005AF49D /* LoginViewController.swift */,
+				C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */,
+				C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				C6D8A2B12779A32D005FBD5B /* AccountViewController.swift in Sources */,
 				C6115AF127779CC0005AF49D /* LoginViewController.swift in Sources */,
 				C6115AF327779CE9005AF49D /* SignInViewController.swift in Sources */,
+				C6D8A2B32779AE9A005FBD5B /* MoviesViewController.swift in Sources */,
 				C6115AF527779CFF005AF49D /* LandViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

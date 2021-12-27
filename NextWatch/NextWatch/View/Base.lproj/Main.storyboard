@@ -215,7 +215,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bei-gu-x4m">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="62.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="62.5" id="9yJ-DE-hL8"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="Q7f-8S-bMr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -228,7 +227,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiO-aW-dSP">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20.5" id="9nn-hh-MkT"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="CW9-8H-QY6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -238,7 +236,6 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0Z-ph-WSM">
                                                 <rect key="frame" x="0.0" y="28.5" width="288" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="gy0-Mb-lfr"/>
                                                     <constraint firstAttribute="width" constant="288" id="wXK-S7-6ih"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -247,7 +244,6 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="288" id="IUH-0X-e7C"/>
-                                            <constraint firstAttribute="height" constant="62.5" id="nkr-fL-wws"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4LT-26-Umh">
@@ -256,7 +252,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at3-iF-lUU">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20.5" id="497-m9-pAy"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="sGb-pc-QxN"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -265,22 +260,17 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGR-Yc-2c7">
                                                 <rect key="frame" x="0.0" y="28.5" width="288" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="q2V-IN-sTe"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="288" id="8vr-Mw-dlE"/>
-                                            <constraint firstAttribute="height" constant="62.5" id="zPt-yf-pIr"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nu6-03-hy0">
                                         <rect key="frame" x="0.0" y="322.5" width="288" height="62.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="62.5" id="c6A-Vv-ivk"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="j0f-N2-xvq"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="systemRedColor"/>
@@ -294,7 +284,6 @@
                                 <constraints>
                                     <constraint firstItem="H7M-j5-s0M" firstAttribute="top" secondItem="bei-gu-x4m" secondAttribute="bottom" constant="45" id="QRX-Z5-Rbf"/>
                                     <constraint firstItem="Nu6-03-hy0" firstAttribute="top" secondItem="4LT-26-Umh" secondAttribute="bottom" constant="45" id="uAi-ud-pNF"/>
-                                    <constraint firstAttribute="height" constant="385" id="xup-Ha-xWS"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -302,8 +291,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="18M-Lf-Zxj" firstAttribute="leading" secondItem="aMy-CF-yf8" secondAttribute="leadingMargin" id="8NO-OL-xZL"/>
-                            <constraint firstItem="lex-J1-Ae1" firstAttribute="bottom" secondItem="18M-Lf-Zxj" secondAttribute="bottom" constant="131" id="JfE-1P-aIZ"/>
-                            <constraint firstItem="18M-Lf-Zxj" firstAttribute="top" secondItem="lex-J1-Ae1" secondAttribute="top" constant="8" id="bFL-uu-uWg"/>
+                            <constraint firstItem="18M-Lf-Zxj" firstAttribute="top" secondItem="lex-J1-Ae1" secondAttribute="top" constant="8" id="CBs-qF-nAI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zus-Vu-pji"/>
@@ -349,7 +337,7 @@
         <!--Movies List-->
         <scene sceneID="Snf-nd-9L3">
             <objects>
-                <viewController id="JHj-mS-8Wl" sceneMemberID="viewController">
+                <viewController id="JHj-mS-8Wl" customClass="MoviesViewController" customModule="NextWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FpH-aV-8j7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVf-KX-ti8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477.60000000000002" y="800.14992503748135"/>
+            <point key="canvasLocation" x="478" y="760"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ho9-Ea-Cwf">

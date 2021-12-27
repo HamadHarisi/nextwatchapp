@@ -11,5 +11,8 @@ import UIKit
 
 class LoginViewController: UIViewController
 {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+    }
 }

@@ -7,9 +7,15 @@
 
 import Foundation
 import UIKit
-
-
+import Firebase
 class LandViewController : UIViewController
 {
+var activityIndicator = UIActivityIndicatorView()
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+      
+    }
     
 }

@@ -25,4 +25,3 @@ struct Activity
         parentView.isUserInteractionEnabled = true
     }
     }
-

@@ -13,18 +13,18 @@ class SignupViewController : UIViewController
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
     @IBOutlet weak var userImageView: UIImageView!
+{
+didSet
     {
-        didSet
-        {
-            userImageView.layer.borderColor = UIColor.systemBackground.cgColor
-            userImageView.layer.borderWidth = 4.5
-            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
-            userImageView.layer.masksToBounds = true
-            userImageView.isUserInteractionEnabled = true
-            let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
-            userImageView.addGestureRecognizer(tabGesture)
-        }
+        userImageView.layer.borderColor = UIColor.systemBackground.cgColor
+        userImageView.layer.borderWidth = 4.5
+        userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+        userImageView.layer.masksToBounds = true
+        userImageView.isUserInteractionEnabled = true
+        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
+        userImageView.addGestureRecognizer(tabGesture)
     }
+}
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -85,7 +85,7 @@ class SignupViewController : UIViewController
                                 }
                                 else
                                 {
-                                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
+                                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
                                         vc.modalPresentationStyle = .fullScreen
                                         Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                                         self.present(vc, animated: true, completion: nil)

@@ -7,17 +7,20 @@
 
 import UIKit
 import Firebase
+import SwiftUI
 
 class SignupViewController : UIViewController
 {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
+    
     @IBOutlet weak var userImageView: UIImageView!
 {
 didSet
     {
-        userImageView.layer.borderColor = UIColor.systemBackground.cgColor
-        userImageView.layer.borderWidth = 4.5
+//        userImageView.layer.shadowColor = UIColor.systemBlue.cgColor
+        userImageView.layer.borderColor = UIColor.systemFill.cgColor
+        userImageView.layer.borderWidth = 1
         userImageView.layer.cornerRadius = userImageView.bounds.height / 2
         userImageView.layer.masksToBounds = true
         userImageView.isUserInteractionEnabled = true
@@ -38,6 +41,8 @@ didSet
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+        
+        imagePickerController.delegate = self
     }
     @IBAction func handleSignup(_ sender: Any)
     {
@@ -68,7 +73,7 @@ didSet
                         storageRef.downloadURL {url, error in
                             if let error = error
                             {
-                                print("Storage Download Url Error",error.localizedDescription)
+                                print("Storage Download Url Error !!!!!!!!",error.localizedDescription)
                             }
                         if let url = url {
                             print("URL",url.absoluteString)
@@ -81,7 +86,7 @@ didSet
                             ]
                             db.collection("users").document(authResult.user.uid).setData(userData) { error in
                                 if let error = error {
-                                    print("Database error",error.localizedDescription)
+                                    print("Database error !!!!!!!!!!! ",error.localizedDescription)
                                 }
                                 else
                                 {
@@ -89,18 +94,18 @@ didSet
                                         vc.modalPresentationStyle = .fullScreen
                                         Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                                         self.present(vc, animated: true, completion: nil)
-                                    }
-                                }
+                               }
                             }
-                        }
-                    }
+                         }
+                      }
+                   }
                 }
-            }
+             }
+          }
         }
+      }
     }
-}
-}
-    
+
 extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @objc func selectImage()
@@ -109,14 +114,12 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
     {
         let alert = UIAlertController(title: "chose Picture", message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title:"Camera", style: .default)
-        { Action in self.getImage(from: .camera) }
-        let galaryAction = UIAlertAction(title: "Photo Album", style: .default)
+        let cameraAction = UIAlertAction(title:" Camera ", style: .default)
+        { Action in self.getImage(from: .camera ) }
+        let galaryAction = UIAlertAction(title: " Photo Album ", style: .default)
         { Action in self.getImage(from: .photoLibrary)}
-        let dismissAction = UIAlertAction(title: "Cancle", style: .destructive)
-        {
-        Action in self.dismiss(animated: true, completion: nil)
-        }
+        let dismissAction = UIAlertAction(title: " Cancle ", style: .cancel)
+        { Action in self.dismiss(animated: true, completion: nil) }
             alert.addAction(cameraAction)
             alert.addAction(galaryAction)
             alert.addAction(dismissAction)

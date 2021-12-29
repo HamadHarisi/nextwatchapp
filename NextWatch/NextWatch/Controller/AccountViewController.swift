@@ -8,6 +8,8 @@
 import UIKit
 
 class AccountViewController: UIViewController {
+    
+    
     @IBOutlet weak var userImageInAccount: UIImageView!
     {
         didSet
@@ -32,4 +34,4 @@ class AccountViewController: UIViewController {
 
     }
 }
-//HamadHarisi
+

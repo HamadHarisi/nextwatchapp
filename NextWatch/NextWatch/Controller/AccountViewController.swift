@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
+import Firebase
 class AccountViewController: UIViewController {
+  
     
-    
+    @IBOutlet weak var userNameLabelInAccount: UILabel!
     @IBOutlet weak var userImageInAccount: UIImageView!
     {
         didSet
@@ -24,7 +25,34 @@ class AccountViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    func configure(with user:User) -> Any
+    {
+        userImageInAccount.loadImageUsingCache(with: user.imageUrl)
+    }
+    @IBAction func signOutButton(_ sender: Any)
+    {
+    do
+    {
+    try Auth.auth().signOut()
+    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
+    {
+    vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+    }
+    } catch {
+    print("Error In SignOut",error.localizedDescription)
     
+    }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let identifier = segue.identifier
+//        {
+//            if identifier == "toAccountVC" {
+//
+//            }
+//        }
+//    }
 @objc func selectImage()
     {
      showalert()

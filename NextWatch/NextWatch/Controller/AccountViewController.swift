@@ -25,9 +25,11 @@ class AccountViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    func configure(with user:User) -> Any
+    func configure(with movie:Movie) -> UITableViewCell
     {
-        userImageInAccount.loadImageUsingCache(with: user.imageUrl)
+        userImageInAccount.loadImageUsingCache(with: movie.user.imageUrl)
+        userNameLabelInAccount.text = movie.user.name
+        return self
     }
     @IBAction func signOutButton(_ sender: Any)
     {

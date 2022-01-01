@@ -118,7 +118,7 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
         { Action in self.getImage(from: .camera ) }
         let galaryAction = UIAlertAction(title: " Photo Album ", style: .default)
         { Action in self.getImage(from: .photoLibrary)}
-        let dismissAction = UIAlertAction(title: " Cancle ", style: .cancel)
+        let dismissAction = UIAlertAction(title: " Cancle ", style: .destructive)
         { Action in self.dismiss(animated: true, completion: nil) }
             alert.addAction(cameraAction)
             alert.addAction(galaryAction)

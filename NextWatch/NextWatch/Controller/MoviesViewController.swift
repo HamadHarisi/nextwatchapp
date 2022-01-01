@@ -1,66 +1,92 @@
+////
+////  MoviesViewController.swift
+////  NextWatch
+////
+////  Created by حمد الحريصي on 27/12/2021.
+////
 //
-//  MoviesViewController.swift
-//  NextWatch
+//import UIKit
 //
-//  Created by حمد الحريصي on 27/12/2021.
+//class MoviesViewController: UIViewController {
+//   
+//    var movies = [Movie]()
+//    var selectedPost:Movie?
+//    var selectedPostImage:UIImage?
 //
-
-import UIKit
-
-class MoviesViewController: UIViewController {
-   
-    
-   // var movies = [Movie]()
-  //  var number:Int?
-    
-    @IBOutlet weak var MoviesCollectionView: UICollectionView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   //     number = 999
-        
-//        MoviesCollectionView.delegate = self
-//        MoviesCollectionView.dataSource = self
-//
-//
-        
-        title = "Movies List"
-        navigationController?.navigationBar.prefersLargeTitles = true
-
-//        title = "Movies List"
-//        navigationItem.largeTitleDisplayMode = .always
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//
-//
-    //    navigationController?.navigationBar.largeTitleTextAttributes =
-
-     
-    }
-}
-//extension MoviesViewController: UICollectionViewDelegate
-//{
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return movies.count
-//    }
-
-
-
-    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+//    
+//    @IBOutlet weak var moviesCollectionView: UICollectionView!
 //    {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: <#T##String#>, for: <#T##IndexPath#>) as! MovieCollectionViewCell
-//        return cell.configure(with: movies[indexPath.row])
-//        let cell = collectionView.cellForItem(at: indexPath) as! MovieCollectionViewCell
-//        return cell
+//        didSet
+//        {
+//            moviesCollectionView.delegate = self
+//            moviesCollectionView.dataSource = self
+//
+//        }
+//    }
+//    override func viewDidLoad() {
+//   
+//        super.viewDidLoad()
+//
+//    
+//        
+//        
+//        
+////        title = "Movies List"
+////        navigationController?.navigationBar.prefersLargeTitles = true
+//
+//    }
+//    
+//    
+//    
+//    func getDataFromAPI(with endPoint: String)
+//    {
+//      let baseURL = "https://digimon-api.vercel.app/api"
+//        if let url = URL (string: baseURL + endPoint)
+//        {
+//            let session = URLSession(configuration: .default)
+//            let task = session.dataTask(with: url) { data , response, error in
+//                if let error = error {
+//                    print("ERRORRRRRRRR!!!!!!!!",error.localizedDescription)
+//                }else
+//                {
+//                    print("ERRORRRRRRR",data!)
+//                    if let safeData = data
+//                    {
+//                        do
+//                        {
+//                            let decoder = JSONDecoder()
+//                            let decoderData = try decoder.decode([Movie].self , from: safeData)
+//                            self.movies = decoderData
+//                            DispatchQueue.main.async {
+//                                self.moviesCollectionView.reloadData()
+//                            }
+//                        }
+//                     catch
+//                    {
+//                        print("ERRORR!?!?!?!?!?!?",error.localizedDescription)
+//                    }
+//                }
+//            }
+//        }
+//        task.resume()
 //    }
 //}
-
-
+//    //\\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+//}
+//extension MoviesViewController: UICollectionViewDelegate
+//{
+//    
+//}
 //extension MoviesViewController: UICollectionViewDataSource
 //{
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        return
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 1
 //    }
-//
-//
+//    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = moviesCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+//        return cell
+//    }
+//    
+//    
 //}

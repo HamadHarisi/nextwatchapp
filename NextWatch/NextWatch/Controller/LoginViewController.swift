@@ -20,6 +20,12 @@ class LoginViewController: UIViewController
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
     
+//    var usernamesender =
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let toAccount = segue.destination as? AccountViewController
+//        toAccount?.
+//    }
     @IBAction func handleLogin(_ sender: Any)
     {
         if let email = emailTextField.text,

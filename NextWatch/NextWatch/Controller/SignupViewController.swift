@@ -13,12 +13,11 @@ class SignupViewController : UIViewController
 {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
-    
+
     @IBOutlet weak var userImageView: UIImageView!
 {
 didSet
     {
-//        userImageView.layer.shadowColor = UIColor.systemBlue.cgColor
         userImageView.layer.borderColor = UIColor.systemFill.cgColor
         userImageView.layer.borderWidth = 1
         userImageView.layer.cornerRadius = userImageView.bounds.height / 2
@@ -37,7 +36,7 @@ didSet
     @IBOutlet weak var rePasswordTextField: UITextField!
     
 //    @IBOutlet weak var handleSignup: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
@@ -125,8 +124,8 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
             alert.addAction(dismissAction)
             self.present(alert, animated: true, completion: nil)
     }
-            func getImage( from sourceType: UIImagePickerController.SourceType)
-            {
+    func getImage( from sourceType: UIImagePickerController.SourceType)
+    {
             if UIImagePickerController.isSourceTypeAvailable(sourceType)
             {
                 imagePickerController.sourceType = sourceType

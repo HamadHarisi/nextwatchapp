@@ -33,3 +33,9 @@ struct Movie
         self.user = user
     }
 }
+//struct Bokimon : Decoder
+//{
+//    var name: String
+//    var img : String
+//    var level : String
+//}

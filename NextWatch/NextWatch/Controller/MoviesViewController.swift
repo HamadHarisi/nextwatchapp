@@ -6,14 +6,17 @@
 ////
 //
 //import UIKit
-//
+//import Firebase
 //class MoviesViewController: UIViewController {
-//   
+//
+//
+//
+//    var bokimon = [Bokimon]()
 //    var movies = [Movie]()
 //    var selectedPost:Movie?
 //    var selectedPostImage:UIImage?
 //
-//    
+//
 //    @IBOutlet weak var moviesCollectionView: UICollectionView!
 //    {
 //        didSet
@@ -24,20 +27,20 @@
 //        }
 //    }
 //    override func viewDidLoad() {
-//   
+//
 //        super.viewDidLoad()
 //
-//    
-//        
-//        
-//        
+//
+//
+//
+//
 ////        title = "Movies List"
 ////        navigationController?.navigationBar.prefersLargeTitles = true
 //
 //    }
-//    
-//    
-//    
+//
+//
+//
 //    func getDataFromAPI(with endPoint: String)
 //    {
 //      let baseURL = "https://digimon-api.vercel.app/api"
@@ -55,7 +58,7 @@
 //                        do
 //                        {
 //                            let decoder = JSONDecoder()
-//                            let decoderData = try decoder.decode([Movie].self , from: safeData)
+//                            let decoderData = try decoder.decode([bokimon].self , from: safeData)
 //                            self.movies = decoderData
 //                            DispatchQueue.main.async {
 //                                self.moviesCollectionView.reloadData()
@@ -75,18 +78,18 @@
 //}
 //extension MoviesViewController: UICollectionViewDelegate
 //{
-//    
+//
 //}
 //extension MoviesViewController: UICollectionViewDataSource
 //{
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return 1
 //    }
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        let cell = moviesCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
 //        return cell
 //    }
-//    
-//    
+//
+//
 //}

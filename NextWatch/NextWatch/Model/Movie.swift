@@ -33,9 +33,9 @@ struct Movie
         self.user = user
     }
 }
-//struct Bokimon : Decoder
+//struct Digmon: Codable
 //{
-//    var name: String
-//    var img : String
-//    var level : String
+//    var name:String
+//    var img:String
+//    var level:String
 //}

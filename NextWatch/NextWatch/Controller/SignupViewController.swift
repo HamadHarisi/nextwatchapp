@@ -13,20 +13,20 @@ class SignupViewController : UIViewController
 {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
-
+    
     @IBOutlet weak var userImageView: UIImageView!
-{
-didSet
     {
-        userImageView.layer.borderColor = UIColor.systemFill.cgColor
-        userImageView.layer.borderWidth = 1
-        userImageView.layer.cornerRadius = userImageView.bounds.height / 2
-        userImageView.layer.masksToBounds = true
-        userImageView.isUserInteractionEnabled = true
-        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
-        userImageView.addGestureRecognizer(tabGesture)
+        didSet
+        {
+            userImageView.layer.borderColor = UIColor.systemFill.cgColor
+            userImageView.layer.borderWidth = 1
+            userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+            userImageView.layer.masksToBounds = true
+            userImageView.isUserInteractionEnabled = true
+            let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
+            userImageView.addGestureRecognizer(tabGesture)
+        }
     }
-}
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -35,8 +35,8 @@ didSet
     
     @IBOutlet weak var rePasswordTextField: UITextField!
     
-//    @IBOutlet weak var handleSignup: UIButton!
-
+    //    @IBOutlet weak var handleSignup: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
@@ -68,42 +68,42 @@ didSet
                         if let error = error
                         {
                             print("Storage Error !!!!!!!!",error.localizedDescription)
-                    }
+                        }
                         storageRef.downloadURL {url, error in
                             if let error = error
                             {
                                 print("Storage Download Url Error !!!!!!!!",error.localizedDescription)
                             }
-                        if let url = url {
-                            print("URL",url.absoluteString)
-                            let db = Firestore.firestore()
-                            let userData: [String:String] = [
-                                "id":authResult.user.uid,
-                                "name":name,
-                                "email":email,
-                                "imageUrl":url.absoluteString
-                            ]
-                            db.collection("users").document(authResult.user.uid).setData(userData) { error in
-                                if let error = error {
-                                    print("Database error !!!!!!!!!!! ",error.localizedDescription)
+                            if let url = url {
+                                print("URL",url.absoluteString)
+                                let db = Firestore.firestore()
+                                let userData: [String:String] = [
+                                    "id":authResult.user.uid,
+                                    "name":name,
+                                    "email":email,
+                                    "imageUrl":url.absoluteString
+                                ]
+                                db.collection("users").document(authResult.user.uid).setData(userData) { error in
+                                    if let error = error {
+                                        print("Database error !!!!!!!!!!! ",error.localizedDescription)
+                                    }
+                                    else
+                                    {
+                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
+                                            vc.modalPresentationStyle = .fullScreen
+                                            Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                            self.present(vc, animated: true, completion: nil)
+                                        }
+                                    }
                                 }
-                                else
-                                {
-                                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
-                                        vc.modalPresentationStyle = .fullScreen
-                                        Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
-                                        self.present(vc, animated: true, completion: nil)
-                               }
                             }
-                         }
-                      }
-                   }
+                        }
+                    }
                 }
-             }
-          }
+            }
         }
-      }
     }
+}
 
 extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
@@ -119,27 +119,27 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
         { Action in self.getImage(from: .photoLibrary)}
         let dismissAction = UIAlertAction(title: " Cancle ", style: .destructive)
         { Action in self.dismiss(animated: true, completion: nil) }
-            alert.addAction(cameraAction)
-            alert.addAction(galaryAction)
-            alert.addAction(dismissAction)
-            self.present(alert, animated: true, completion: nil)
+        alert.addAction(cameraAction)
+        alert.addAction(galaryAction)
+        alert.addAction(dismissAction)
+        self.present(alert, animated: true, completion: nil)
     }
     func getImage( from sourceType: UIImagePickerController.SourceType)
     {
-            if UIImagePickerController.isSourceTypeAvailable(sourceType)
-            {
-                imagePickerController.sourceType = sourceType
-                self.present(imagePickerController,animated: true, completion: nil)
-            }
-        }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
+        if UIImagePickerController.isSourceTypeAvailable(sourceType)
         {
-            guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-            userImageView.image = chosenImage
-            dismiss(animated: true, completion: nil)
+            imagePickerController.sourceType = sourceType
+            self.present(imagePickerController,animated: true, completion: nil)
         }
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-        {
-            picker.dismiss(animated: true, completion: nil)
-        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
+    {
+        guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        userImageView.image = chosenImage
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

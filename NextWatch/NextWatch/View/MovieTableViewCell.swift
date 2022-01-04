@@ -21,8 +21,20 @@ class MovieTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+//        let delect = UIBarButtonItem(image: UIImage(systemName: "trash.fill"),style: .plain, target: self, action: #selector(<#T##@objc method#>))
+//
+//        
+//        
+//        
+//        @objc func handlDelect()
         // Configure the view for the selected state
+    }
+    func configure(with user:User) -> UITableViewCell
+    {
+        name.text = user.name
+        poster.loadImageUsingCache(with: user.imageUrl)
+        
+        return self
     }
     
 }

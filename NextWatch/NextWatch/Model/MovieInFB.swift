@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-struct Movie
+struct MovieInFB
 {
     var id = ""
     var moviesName = ""
@@ -33,9 +33,9 @@ struct Movie
         self.user = user
     }
 }
-//struct Digmon: Codable
-//{
-//    var name:String
-//    var img:String
-//    var level:String
-//}
+struct Digmon: Codable
+{
+    var name:String
+    var img:String
+    var level:String
+}

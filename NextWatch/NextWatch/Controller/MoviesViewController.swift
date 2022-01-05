@@ -10,34 +10,52 @@ import Firebase
 class MoviesViewController: UIViewController
 {
     var movies = [Movie]()
-    var selectedPost:Movie?
+    var selectedMovie:Movie?
     var selectedPostImage:UIImage?
-    
-    private var viewModel = MovieViewModel()
 
+    
     @IBOutlet weak var movieTableView: UITableView!
     {
         didSet {
             movieTableView.delegate = self
             movieTableView.dataSource = self
-      //      movieTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
+            //      movieTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
         }
     }
-
+    
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
+        
         loadPopularMoviesData()
     }
     private func loadPopularMoviesData() {
-        viewModel.fetchPopularMoviesData { [weak self] in
-            self?.movieTableView.dataSource = self
-            self?.movieTableView.reloadData()
+     let apiService = ApiService()
+        apiService.getPopularMoviesData { result in
+            switch result {
+            case .success(let list):
+                self.movies = list.movies
+                self.movieTableView.reloadData()
+            case .failure(_):
+                print("ERROR")
+            }
         }
     }
 }
-//\\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-//    func getPosts() {
+
+var titleSender = ""
+var overViewSender = ""
+
+
+//func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    let toMyList = segue.destination as! MyListViewCotroller
+//    //    distenationVC.selectedItem = selectedItem
+////    toMyList.titleResiver = titleSender
+////    toMyList.overViewResiver = overViewSender
+//    // toMyList.poster.image = posterInMyList
+//}
+
+//func getPosts() {
 //        let ref = Firestore.firestore()
 //        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
 //            if let error = error {
@@ -48,8 +66,7 @@ class MoviesViewController: UIViewController
 //                snapshot.documentChanges.forEach { diff in
 //                    let postData = diff.document.data()
 //                    switch diff.type {
-//                    case .added :
-//
+//                    case .added:
 //                        if let userId = postData["userId"] as? String {
 //                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
 //                                if let error = error {
@@ -66,7 +83,7 @@ class MoviesViewController: UIViewController
 //                                        self.movieTableView.insertRows(at: [IndexPath(row: self.movies.count - 1 , section: 0)], with: .automatic)
 //                                    }else {
 //                                        self.movies.insert(post,at:0)
-//                                        self.movieTableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
+//                                    self.movieTableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
 //                                    }
 //                                    self.movieTableView.endUpdates()
 //                                }
@@ -82,37 +99,76 @@ class MoviesViewController: UIViewController
 //                    case .removed:
 //                        let postId = diff.document.documentID
 //                        if let deleteIndex = self.movies.firstIndex(where: {$0.id == postId }) {
-//                            self.movies.remove(at: deleteIndex)
+//                        self.movies.remove(at: deleteIndex)
 //
 //                            self.movieTableView.beginUpdates()
-//                            self.movieTableView.deleteRows(at: [IndexPath(row: deleteIndex, section: 0)], with: .automatic)
-//                            self.movieTableView.endUpdates()
+//                        self.movieTableView.deleteRows(at: [IndexPath(row: deleteIndex, section: 0)], with: .automatic)
+//                        self.movieTableView.endUpdates()
 //                        }
 //                    }
 //                }
 //            }
 //        }
 //    }
-//\\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+
+
+func saveMovie(selectedMovie:Movie) {
+    
+    if let currentUser = Auth.auth().currentUser?.uid {
+        //    Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+        
+        var movieData = [String:Any]()
+        let db = Firestore.firestore()
+        let ref = db.collection("movies")
+        movieData = [
+            "userId":currentUser,
+            "title":selectedMovie.title ?? "No TITLE",
+            "overview":selectedMovie.overview ?? "No Overview" ,
+            "imageUrl":selectedMovie.posterImage ?? "No image",
+            "year":selectedMovie.year ?? "0000",
+            "rate":selectedMovie.rate ?? 0.0,
+            "createdAt": FieldValue.serverTimestamp(),
+        ]
+        ref.addDocument(data: movieData) { error in
+            if let error = error {
+                print("FireStore Error\(error.localizedDescription)")
+            }
+            //
+            // add alert here
+            //
+        }
+    }
+    
+    
+    
+    
+}
+
+
 
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
 {
-   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 150}
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 150}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MovieTableViewCell
         
-        let  movie = viewModel.cellForRowAt(indexPath: indexPath)
+        let  movie = movies[indexPath.row]
         cell.setCellWithValuesOf(movie)
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section: section)
+        return movies.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+        {
+          titleSender = movies[indexPath.row].title ?? "Error"
+          overViewSender = movies[indexPath.row].overview ?? "Error"
+             saveMovie(selectedMovie: movies[indexPath.row])
 
     }
 }

@@ -90,6 +90,7 @@
 		C6115AD0277661F7005AF49D /* NextWatch */ = {
 			isa = PBXGroup;
 			children = (
+				C678D4A92784DF5500BCF609 /* Networking */,
 				C6115AF72777A7A2005AF49D /* View */,
 				C6115AF62777A799005AF49D /* Model */,
 				C6115AF82777A7AA005AF49D /* Controller */,
@@ -105,10 +106,9 @@
 		C6115AF62777A799005AF49D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C678D4A42784B98B00BCF609 /* MovieAPIModel.swift */,
 				C6151ED42779F5050011565E /* User.swift */,
 				C6151ED62779F69D0011565E /* MovieInFB.swift */,
-				C678D4A42784B98B00BCF609 /* MovieAPIModel.swift */,
-				C6871BDA2782ED7F007C760F /* ApiService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,8 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				C6115AD7277661F7005AF49D /* Main.storyboard */,
-				C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */,
 				C6115ADC277661F7005AF49D /* LaunchScreen.storyboard */,
+				C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */,
+				C678D4A82784DF1100BCF609 /* ViewModel */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,12 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */,
-				C6871BDC27841DF5007C760F /* AccountDetailsViewController.swift */,
-				C678D4A62784C4E800BCF609 /* MovieViewModel.swift */,
-				C6115AF427779CFF005AF49D /* LandViewController.swift */,
-				C6115AF227779CE9005AF49D /* SignupViewController.swift */,
-				C6115AF027779CC0005AF49D /* LoginViewController.swift */,
-				C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */,
+				C678D4AB2784DFA300BCF609 /* Account */,
+				C678D4AA2784DF7A00BCF609 /* Auth */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +150,41 @@
 				C6151ED12779E8340011565E /* ImageView.swift */,
 			);
 			path = Utill;
+			sourceTree = "<group>";
+		};
+		C678D4A82784DF1100BCF609 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C678D4A62784C4E800BCF609 /* MovieViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C678D4A92784DF5500BCF609 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C6871BDA2782ED7F007C760F /* ApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C678D4AA2784DF7A00BCF609 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C6115AF227779CE9005AF49D /* SignupViewController.swift */,
+				C6115AF027779CC0005AF49D /* LoginViewController.swift */,
+				C6115AF427779CFF005AF49D /* LandViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C678D4AB2784DFA300BCF609 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C6871BDC27841DF5007C760F /* AccountDetailsViewController.swift */,
+				C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

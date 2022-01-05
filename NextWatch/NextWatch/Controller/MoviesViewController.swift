@@ -16,13 +16,13 @@ class MoviesViewController: UIViewController
     private var viewModel = MovieViewModel()
 
     @IBOutlet weak var movieTableView: UITableView!
-//    {
-//        didSet {
-//            movieTableView.delegate = self
-//            movieTableView.dataSource = self
-//            movieTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
-//        }
-//    }
+    {
+        didSet {
+            movieTableView.delegate = self
+            movieTableView.dataSource = self
+      //      movieTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
+        }
+    }
 
     override func viewDidLoad() {
 
@@ -36,7 +36,7 @@ class MoviesViewController: UIViewController
         }
     }
 }
-    
+//\\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 //    func getPosts() {
 //        let ref = Firestore.firestore()
 //        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
@@ -93,12 +93,11 @@ class MoviesViewController: UIViewController
 //            }
 //        }
 //    }
-   
 //\\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
 {
-   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 100}
+   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 150}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -110,5 +109,10 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+
     }
 }

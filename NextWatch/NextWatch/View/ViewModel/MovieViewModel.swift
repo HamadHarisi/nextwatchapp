@@ -24,7 +24,7 @@ class MovieViewModel {
                 completion()
             case .failure(let error):
                 // Something is wrong with the JSON file or the model
-                print("Error processing json data: \(error)")
+                print("Error processing json data",error)
             }
         }
     }

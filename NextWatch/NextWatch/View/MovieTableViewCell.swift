@@ -13,6 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var poster: UIImageView!
+    @IBOutlet weak var overview: UILabel!
     
     // Setup movies values
     func setCellWithValuesOf(_ movie:Movie) {
@@ -23,7 +24,7 @@ class MovieTableViewCell: UITableViewCell {
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {
         
         self.name.text = title
-     //   self.movieOverview.text = overview
+        self.overview.text = overview
         
         guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
@@ -77,69 +78,3 @@ class MovieTableViewCell: UITableViewCell {
         return fixDate
     }
 }
-
-    
-    
-    
-    
-    
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//    }
-//
-//    func setCellWithValuesOf(_ movie:Movie) {
-//        updateUI( title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
-//    }
-//
-//    private func updateUI(title: String?, releaseData: String?, rating: Double?, overview: String?, poster: String?) {
-//        self.name.text = title
-//        guard let posterString = poster else {return}
-//     urlString = "https://image.tmdb.org/t/p/w300" + posterString
-//
-//        guard let posterImageURL = URL(string: urlString) else {
-//            self.poster.image = UIImage(named: "NO Poster")
-//            return
-//        }
-//
-//        self.poster.image = nil
-//
-//        getImageDataFrom(url: posterImageURL)
-//    }
-//
-//    private func getImageDataFrom(url: URL) {
-//        URLSession.shared.dataTask(with: url) { ( data, response, error) in
-//            if let error = error {
-//                print("DataTask ERROR: ",error.localizedDescription)
-//                return
-//            }
-//
-//            guard let data = data else {
-//                print("EMPTY DATA")
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                if let image = UIImage(data: data) {
-//                    self.poster.image = image
-//                }
-//            }
-//        }.resume()
-//    }
-//
-//    func configure(with user:User) -> UITableViewCell
-//    {
-//        name.text = user.name
-//        poster.loadImageUsingCache(with: user.imageUrl)
-//
-//        return self
-//    }
-//    override func prepareForReuse() {
-//        poster.image = nil
-//    }
-//
-//}

@@ -1,30 +1,25 @@
-//
-//  MovieAPIModel.swift
-//  NextWatch
-//
-//  Created by حمد الحريصي on 04/01/2022.
-//
 
 import Foundation
 
 struct MoviesData: Decodable {
-    let movies:[Movie]
+    let movies: [Movie]
     
     private enum CodingKeys: String, CodingKey {
-        case movies = "reslts"
+        case movies = "results"
     }
 }
 
 struct Movie: Decodable {
-    var title: String?
-    var year: String?
-    var rate: Double?
-    var posterImage: String?
-    var overview: String?
+    
+    let title: String?
+    let year: String?
+    let rate: Double?
+    let posterImage: String?
+    let overview: String?
     
     private enum CodingKeys: String, CodingKey {
         case title, overview
-        case year = "release_data"
+        case year = "release_date"
         case rate = "vote_average"
         case posterImage = "poster_path"
     }

@@ -8,7 +8,6 @@ struct MoviesData: Decodable {
         case movies = "results"
     }
 }
-
 struct Movie: Decodable {
     
     let title: String?

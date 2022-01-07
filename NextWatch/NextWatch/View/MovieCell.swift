@@ -4,11 +4,9 @@
 //
 //  Created by حمد الحريصي on 06/01/2022.
 //
-
 import UIKit
 
 class MovieCell: UITableViewCell {
-    
     
     @IBOutlet weak var posterInMyList: UIImageView!
     @IBOutlet weak var titleInMyList: UILabel!
@@ -25,14 +23,13 @@ class MovieCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(with movie:MovieList) -> UITableViewCell {
-        titleInMyList.text = movie.title
-        overViewInMyList.text = movie.overview
-        posterInMyList.loadImageUsingCache(with: movie.imageUrl)
+    func configure(with movielist:MovieList) -> UITableViewCell {
+        titleInMyList.text = movielist.title
+        overViewInMyList.text = movielist.overview
+        posterInMyList.loadImageUsingCache(with: movielist.imageUrl )
         return self
     }
     override func prepareForReuse() {
         posterInMyList.image = nil
     }
-    
 }

@@ -12,7 +12,8 @@ class MoviesViewController: UIViewController
     var movies = [Movie]()
     var selectedMovie:Movie?
     var selectedPostImage:UIImage?
-
+    let present = UIAlertAction.self
+    
     
     @IBOutlet weak var movieTableView: UITableView!
     {
@@ -30,7 +31,7 @@ class MoviesViewController: UIViewController
         loadPopularMoviesData()
     }
     private func loadPopularMoviesData() {
-     let apiService = ApiService()
+        let apiService = ApiService()
         apiService.getPopularMoviesData { result in
             switch result {
             case .success(let list):
@@ -45,6 +46,7 @@ class MoviesViewController: UIViewController
 
 var titleSender = ""
 var overViewSender = ""
+var posterSender = ""
 
 
 //func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,9 +126,9 @@ func saveMovie(selectedMovie:Movie) {
         let ref = db.collection("movies")
         movieData = [
             "userId":currentUser,
-            "title":selectedMovie.title ?? "No TITLE",
+            "title":selectedMovie.title ?? "No Title",
             "overview":selectedMovie.overview ?? "No Overview" ,
-            "imageUrl":selectedMovie.posterImage ?? "No image",
+            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "")",
             "year":selectedMovie.year ?? "0000",
             "rate":selectedMovie.rate ?? 0.0,
             "createdAt": FieldValue.serverTimestamp(),
@@ -135,22 +137,16 @@ func saveMovie(selectedMovie:Movie) {
             if let error = error {
                 print("FireStore Error\(error.localizedDescription)")
             }
-            //
-            // add alert here
-            //
+            //     let alert = UIAlertAction(title: "Done", style: .default)
         }
     }
-    
-    
-    
-    
 }
 
 
 
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
 {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 150}
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 150 }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -164,11 +160,39 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
         return movies.count
     }
     
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-        {
-          titleSender = movies[indexPath.row].title ?? "Error"
-          overViewSender = movies[indexPath.row].overview ?? "Error"
-             saveMovie(selectedMovie: movies[indexPath.row])
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        titleSender = movies[indexPath.row].title ?? "Error"
+        overViewSender = movies[indexPath.row].overview ?? "Error"
+        posterSender =  movies[indexPath.row].posterImage ?? "Error"
+        let db = Firestore.firestore()
+        let docRef = db.collection("movies").whereField("title", isEqualTo: titleSender).limit(to: 1)
+//        let docRef = db.collection("movies").whereField("title", isEqualTo: "titleSender").limit(to: 1)
+        docRef.getDocuments { (querysnapshot, error) in
+            if error != nil {
+                print("Document Error: ", error!)
+            } else {
+                if let doc = querysnapshot?.documents, !doc.isEmpty {
+                    tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                    let alert = UIAlertController(title: "Chack Your List", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+         
+                    // alert Done
+                    
+                } else {
+                    print("Document is present.")
+                    saveMovie(selectedMovie: self.movies[indexPath.row])
+                    
+                    
+                    // Alert already exisit
+//                    tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//                    let alert = UIAlertController(title: "Chack Your List", message: "", preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+//                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

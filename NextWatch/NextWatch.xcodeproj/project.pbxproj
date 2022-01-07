@@ -120,9 +120,9 @@
 		C6115AF72777A7A2005AF49D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C6115AD7277661F7005AF49D /* Main.storyboard */,
 				C6115ADC277661F7005AF49D /* LaunchScreen.storyboard */,
 				C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */,
+				C6115AD7277661F7005AF49D /* Main.storyboard */,
 				C6D3DF0427865725006CD62E /* MovieCell.swift */,
 				C6D3DF0527865725006CD62E /* MovieCell.xib */,
 			);
@@ -132,8 +132,7 @@
 		C6115AF82777A7AA005AF49D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */,
-				C6D3DEFC27858C89006CD62E /* MyListViewCotroller.swift */,
+				C68076E42786C121000B10A8 /* Movie */,
 				C678D4AB2784DFA300BCF609 /* Account */,
 				C678D4AA2784DF7A00BCF609 /* Auth */,
 			);
@@ -183,6 +182,15 @@
 				C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		C68076E42786C121000B10A8 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */,
+				C6D3DEFC27858C89006CD62E /* MyListViewCotroller.swift */,
+			);
+			path = Movie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

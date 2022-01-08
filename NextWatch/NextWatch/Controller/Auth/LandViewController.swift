@@ -10,12 +10,24 @@ import UIKit
 import Firebase
 class LandViewController : UIViewController
 {
-var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet weak var signup: UIButton!
+    
+    @IBOutlet weak var logIn: UIButton!
+    
+    var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-      
+        signup.setTitle(NSLocalizedString("signUp", comment: ""), for: .normal)
+        logIn.setTitle(NSLocalizedString("logIn", comment: ""), for: .normal)
     }
     
+}
+extension String
+{
+    var localized: String
+    {
+        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
+    }
 }

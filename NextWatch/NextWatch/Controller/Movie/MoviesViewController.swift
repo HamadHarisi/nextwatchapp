@@ -173,23 +173,12 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 if let doc = querysnapshot?.documents, !doc.isEmpty {
                     tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-                    let alert = UIAlertController(title: "Chack Your List", message: "", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                    
-         
-                    // alert Done
-                    
                 } else {
                     print("Document is present.")
                     saveMovie(selectedMovie: self.movies[indexPath.row])
-                    
-                    
-                    // Alert already exisit
-//                    tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-//                    let alert = UIAlertController(title: "Chack Your List", message: "", preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }

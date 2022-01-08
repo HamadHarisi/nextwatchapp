@@ -25,8 +25,8 @@ struct MovieList {
             self.imageUrl  = imageUrl
             self.createdAt = createdAt
         }
-       //  self.title = title
-        //self.id   = id
+        self.id   = id
+//        self.title = title
         self.user = user
     }
 }

@@ -27,18 +27,29 @@ class SignupViewController : UIViewController
             userImageView.addGestureRecognizer(tabGesture)
         }
     }
+    // TextField IBOutlet
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var rePasswordTextField: UITextField!
+ // Label IBOutlet
+    @IBOutlet weak var signUp: UILabel!
+    {didSet{ signUp.text = "signUpTitle".localized} }
+    @IBOutlet weak var userName: UILabel!
+    {didSet{ userName.text = "userNameTitle".localized} }
+    @IBOutlet weak var email: UILabel!
+    {didSet{ email.text = "emailTitle".localized} }
+    @IBOutlet weak var password: UILabel!
+    {didSet{ password.text = "passwordTitle".localized} }
+    @IBOutlet weak var rePassword: UILabel!
+    {didSet{ rePassword.text = "rePasswordTitle".localized} }
     
-    //    @IBOutlet weak var handleSignup: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Localization
+//        handleSignup.setTitle(NSLocalizedString("handleSignup", comment: ""), for: .normal)
+        
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
         imagePickerController.delegate = self
@@ -141,5 +152,12 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+extension String
+{
+    var localizedInSignUp: String
+    {
+        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
     }
 }

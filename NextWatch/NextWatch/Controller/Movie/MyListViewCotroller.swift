@@ -14,6 +14,7 @@ class MyListViewCotroller: UIViewController
     
     var movies = [MovieList]()
     var selectedMovie:MovieList?
+    var selectedUser:User?
     var selectedPoster:UIImage?
     let activityIndicator = UIActivityIndicatorView()
     
@@ -28,6 +29,7 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
 }
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  print("\(movies.count)")
         getMovies()
     }
     func getMovies() {
@@ -71,33 +73,11 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
                                 }
                             }
                         }
-//                            if let error = error {
-//                                    print("ERROR user Data",error.localizedDescription)
-//
-//
-//                                if let userSnapshot = userSnapshot,
-//                                   let userData = userSnapshot.data(){
-//                                    let user = User(dict:userData)
-//                                    let movie = MovieList(dict: movieData, id: diff.document.documentID, user: user)
-//                                    self.myListTableView.beginUpdates()
-//                                    if snapshot.documentChanges.count != 1 {
-//                                        self.movies.append(movie)
-//
-//                                      self.myListTableView.insertRows(at: [IndexPath(row:self.movies.count - 1,section: 0)],with: .automatic)
-//                                    }else {
-//                                        self.movies.insert(movie,at:0)
-//
-//                                        self.myListTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
-//                                    }
-//                                    self.myListTableView.endUpdates()
-//                                }
-//                            }
-                        
                     case .modified:
                     let movieId = diff.document.documentID
-                    if let currentMovie = self.movies.first(where: {$0.id == movieId}),
-                    let updateIndex = self.movies.firstIndex(where: {$0.id == movieId}){
-                    let newMovie = MovieList(dict: movieData, id: movieId, user: currentMovie.user)
+                    if let currentMovie = self.movies.first(where: {$0.title == movieId}),
+                    let updateIndex = self.movies.firstIndex(where: {$0.title == movieId}){
+                        let newMovie = MovieList(dict: movieData, id: movieId, user: currentMovie.user)
                     self.movies[updateIndex] = newMovie
                          
                                 self.myListTableView.beginUpdates()
@@ -108,7 +88,7 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
                         }
                     case .removed:
                         let movieId = diff.document.documentID
-                        if let deleteIndex = self.movies.firstIndex(where: {$0.id == movieId}){
+                        if let deleteIndex = self.movies.firstIndex(where: {$0.title == movieId}){
                             self.movies.remove(at: deleteIndex)
                           
                                 self.myListTableView.beginUpdates()
@@ -116,25 +96,6 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
                                 self.myListTableView.endUpdates()
                         }
                     }
-                }
-            }
-        }
-    }
-    func handelDelete()
-    {
-        let ref = Firestore.firestore().collection("movies")
-        if let selectedMovie = selectedMovie {
-            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-            ref.document(selectedMovie.title).delete { error in
-            if let error = error {
-                print("Error in db",error)
-            } else {
-                let storageRef = Storage.storage().reference(withPath: "movies/\(selectedMovie.user.id)/\(selectedMovie.title)")
-                storageRef.delete { error in
-                    if let error = error {
-                        print("Error in storage delete",error)
-                    }
-                  }
                 }
             }
         }
@@ -152,9 +113,12 @@ extension MyListViewCotroller : UITableViewDataSource {
     
 }
 extension MyListViewCotroller : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 150
-    }
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 100
+//
+//    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 150 }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view,completionHandler) in
 //                self.handelDelete()
@@ -165,7 +129,31 @@ extension MyListViewCotroller : UITableViewDelegate {
                 completionHandler(true)
                 tableView.deselectRow(at: indexPath, animated: true)
                  }
-//            handelDelete()
-            return UISwipeActionsConfiguration(actions: [delete])
+//        handelDelete()
+        return UISwipeActionsConfiguration(actions: [delete])
             }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      //  handelDelete()
+//        let ref = Firestore.firestore().collection("movies")
+//        let person = movies[indexPath.row]
+//
+        //diff.document.documentID
+        
+        let ref = Firestore.firestore().collection("movies")
+        if let selectedMovie = selectedMovie {
+            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+            ref.document(selectedMovie.id).delete { error in
+            if let error = error {
+                print("Error in db",error)
+            } else {
+                let storageRef = Storage.storage().reference(withPath: "movies/\(selectedMovie.user.id)/\(selectedMovie.id)")
+                storageRef.delete { error in
+                    if let error = error {
+                        print("Error in storage delete",error)
+                      }
+                   }
+                }
+            }
+        }
+    }
 }

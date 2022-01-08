@@ -1,0 +1,93 @@
+
+/* Class = "UILabel"; text = "Version : 1.0.0 (build 1)"; ObjectID = "2W0-w2-S55"; */
+"2W0-w2-S55.text" = "Version : 1.0.0 (build 1)";
+
+/* Class = "UITabBarItem"; title = "My List"; ObjectID = "4oj-hX-vd6"; */
+"4oj-hX-vd6.title" = "My List";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6tP-X9-QyI"; */
+"6tP-X9-QyI.text" = "Label";
+
+/* Class = "UILabel"; text = "Password      "; ObjectID = "7X6-Sn-Oy7"; */
+"7X6-Sn-Oy7.text" = "Password      ";
+
+/* Class = "UILabel"; text = "Re-Password"; ObjectID = "D5X-gO-Vnx"; */
+"D5X-gO-Vnx.text" = "Re-Password";
+
+/* Class = "UILabel"; text = "Sign up"; ObjectID = "EKh-Tw-5eN"; */
+"EKh-Tw-5eN.text" = "Sign up";
+
+/* Class = "UILabel"; text = "Don't have an Account?"; ObjectID = "KMh-eJ-YsG"; */
+"KMh-eJ-YsG.text" = "Don't have an Account?";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "Nu6-03-hy0"; */
+"Nu6-03-hy0.configuration.title" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Nu6-03-hy0"; */
+"Nu6-03-hy0.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "sign up"; ObjectID = "OeK-I2-qlm"; */
+"OeK-I2-qlm.configuration.title" = "sign up";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OeK-I2-qlm"; */
+"OeK-I2-qlm.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Have an Account?"; ObjectID = "QcG-mx-Bg6"; */
+"QcG-mx-Bg6.text" = "Have an Account?";
+
+/* Class = "UIButton"; configuration.title = "SignOut"; ObjectID = "TxO-l9-Tw3"; */
+"TxO-l9-Tw3.configuration.title" = "SignOut";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TxO-l9-Tw3"; */
+"TxO-l9-Tw3.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "UK1-n3-iAW"; */
+"UK1-n3-iAW.text" = "Login";
+
+/* Class = "UIButton"; configuration.title = "Log in"; ObjectID = "V6x-Oe-ZhM"; */
+"V6x-Oe-ZhM.configuration.title" = "Log in";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "V6x-Oe-ZhM"; */
+"V6x-Oe-ZhM.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Sign up"; ObjectID = "ViJ-Mu-0E2"; */
+"ViJ-Mu-0E2.configuration.title" = "Sign up";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ViJ-Mu-0E2"; */
+"ViJ-Mu-0E2.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "profile"; ObjectID = "XIC-ku-Xnf"; */
+"XIC-ku-Xnf.text" = "profile";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "XNQ-ux-094"; */
+"XNQ-ux-094.configuration.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XNQ-ux-094"; */
+"XNQ-ux-094.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Movies"; ObjectID = "a4R-DP-60p"; */
+"a4R-DP-60p.title" = "Movies";
+
+/* Class = "UIButton"; configuration.title = "Sign In"; ObjectID = "aIV-lI-tBt"; */
+"aIV-lI-tBt.configuration.title" = "Sign In";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "at3-iF-lUU"; */
+"at3-iF-lUU.text" = "Password";
+
+/* Class = "UIButton"; configuration.title = "Sign up"; ObjectID = "bAe-Xa-27b"; */
+"bAe-Xa-27b.configuration.title" = "Sign up";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "dgi-Py-VaD"; */
+"dgi-Py-VaD.text" = "Username";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fgg-sb-fGj"; */
+"fgg-sb-fGj.text" = "Label";
+
+/* Class = "UILabel"; text = "Username     "; ObjectID = "ooJ-On-rMk"; */
+"ooJ-On-rMk.text" = "Username     ";
+
+/* Class = "UILabel"; text = "E-mail            "; ObjectID = "pCY-cg-1Lg"; */
+"pCY-cg-1Lg.text" = "E-mail            ";
+
+/* Class = "UITabBarItem"; title = "Account"; ObjectID = "yFd-Rf-4H4"; */
+"yFd-Rf-4H4.title" = "Account";

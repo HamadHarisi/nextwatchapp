@@ -18,6 +18,13 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var userEmailLabelInAccount: UILabel!
     
     @IBOutlet weak var userNameLabelInAccount: UILabel!
+//    {
+//        didSet
+//        {
+//            userNameLabelInAccount.layer.borderWidth = 0.5
+//            userNameLabelInAccount.layer.borderColor = UIColor.systemGray.cgColor
+//        }
+//    }
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -25,13 +32,11 @@ class AccountViewController: UIViewController {
     {
         didSet
         {
-            userImageInAccount.layer.borderColor = UIColor.systemFill.cgColor
+            userImageInAccount.layer.borderColor = UIColor.systemGray.cgColor
             userImageInAccount.layer.borderWidth = 1
             userImageInAccount.layer.cornerRadius = userImageInAccount.bounds.height / 2
             userImageInAccount.layer.masksToBounds = true
             userImageInAccount.isUserInteractionEnabled = true
-         //   let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
-//            userImageInAccount.addGestureRecognizer(tabGesture)
         }
     }
     
@@ -55,9 +60,39 @@ class AccountViewController: UIViewController {
         getCurrentUserData()
     }
     
+/*
+ let refreshAlert = UIAlertController(title: "Refresh", message: "All data will be lost.", preferredStyle: UIAlertController.Style.alert)
 
+ refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+       print("Handle Ok logic here")
+ }))
+
+ refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+       print("Handle Cancel Logic here")
+ }))
+
+ present(refreshAlert, animated: true, completion: nil)
+ */
     @IBAction func signOutButton(_ sender: Any)
     {
+//        let alert = UIAlertController(title: "do you want sign out", message: "", preferredStyle: UIAlertController.Style.alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+//            do
+//            {
+//
+//                self.present(alert, animated: true, completion: nil)
+//                try Auth.auth().signOut()
+//                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
+//                {
+//                    vc.modalPresentationStyle = .fullScreen
+//                    self.present(vc, animated: true, completion: nil)
+//                }
+//            } catch {
+//                print("Error In SignOut",error.localizedDescription)
+//
+//            }
+//        }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         do
         {
             try Auth.auth().signOut()
@@ -68,7 +103,7 @@ class AccountViewController: UIViewController {
             }
         } catch {
             print("Error In SignOut",error.localizedDescription)
-            
+
         }
     }
     

@@ -30,6 +30,14 @@ class AccountDetailsViewController : UIViewController
         }
     }
     
+
+    @IBOutlet weak var usernameInAccointDetails: UILabel!
+//    {
+//        didSet
+//        {
+//            usernameInAccointDetails.text = "username".localized
+//        }
+//    }
     @IBOutlet weak var userNameTextFieldInAccountDetails: UITextField!
     
     override func viewDidLoad() {

@@ -50,9 +50,7 @@ class AccountViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         
-//let mvc = AccountViewController
-//        mvc.refrash()
-        
+
         if let selectedAccount = selectedAccount,
            let selectedImage = selectedAccountImage {
             userEmailLabelInAccount.text = selectedAccount.email

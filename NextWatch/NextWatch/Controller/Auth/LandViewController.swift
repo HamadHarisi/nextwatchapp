@@ -22,7 +22,6 @@ class LandViewController : UIViewController
         signup.setTitle(NSLocalizedString("signUp", comment: ""), for: .normal)
         logIn.setTitle(NSLocalizedString("logIn", comment: ""), for: .normal)
     }
-    
 }
 extension String
 {

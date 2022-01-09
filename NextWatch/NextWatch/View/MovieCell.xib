@@ -27,21 +27,22 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lde-Lb-DBJ">
-                                <rect key="frame" x="93" y="0.0" width="244" height="126"/>
+                                <rect key="frame" x="93" y="8" width="244" height="118"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qY-7o-Gs4">
-                                        <rect key="frame" x="0.0" y="0.0" width="244" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qY-7o-Gs4">
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ZeF-td-UdS"/>
+                                            <constraint firstAttribute="height" constant="50" id="ZeF-td-UdS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="Font Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xde-tC-U8f">
-                                        <rect key="frame" x="0.0" y="38" width="244" height="88"/>
+                                        <rect key="frame" x="0.0" y="58" width="244" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="88" id="obQ-In-cxY"/>
+                                            <constraint firstAttribute="width" constant="244" id="4Nv-po-rGf"/>
+                                            <constraint firstAttribute="height" constant="60" id="EWP-kp-l0F"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>

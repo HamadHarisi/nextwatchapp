@@ -20,9 +20,9 @@ class AccountDetailsViewController : UIViewController
     {
         didSet
         {
-            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
-            userImageInAccountDetails.layer.borderWidth = 1
-            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
+//            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
+//            userImageInAccountDetails.layer.borderWidth = 1
+//            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
             userImageInAccountDetails.layer.masksToBounds = true
             userImageInAccountDetails.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
@@ -32,12 +32,6 @@ class AccountDetailsViewController : UIViewController
     
 
     @IBOutlet weak var usernameInAccointDetails: UILabel!
-//    {
-//        didSet
-//        {
-//            usernameInAccointDetails.text = "username".localized
-//        }
-//    }
     @IBOutlet weak var userNameTextFieldInAccountDetails: UITextField!
     
     override func viewDidLoad() {

@@ -9,6 +9,12 @@ import UIKit
 class MovieCell: UITableViewCell {
     
     @IBOutlet weak var posterInMyList: UIImageView!
+    {
+        didSet
+        {
+            posterInMyList.layer.cornerRadius = posterInMyList.bounds.height / 20
+        }
+    }
     @IBOutlet weak var titleInMyList: UILabel!
     @IBOutlet weak var overViewInMyList: UILabel!
   

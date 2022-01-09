@@ -23,6 +23,7 @@
 		C6151ED22779E8340011565E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED12779E8340011565E /* ImageView.swift */; };
 		C6151ED52779F5050011565E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED42779F5050011565E /* User.swift */; };
 		C66430512788F83C0017CB70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C66430532788F83C0017CB70 /* Localizable.strings */; };
+		C6643056278ABF940017CB70 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6643055278ABF940017CB70 /* CollectionViewCell.swift */; };
 		C678D4A52784B98B00BCF609 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C678D4A42784B98B00BCF609 /* Movie.swift */; };
 		C6871BDB2782ED7F007C760F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6871BDA2782ED7F007C760F /* ApiService.swift */; };
 		C6871BDD27841DF5007C760F /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6871BDC27841DF5007C760F /* AccountDetailsViewController.swift */; };
@@ -55,6 +56,7 @@
 		C664304C2788F7190017CB70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		C66430522788F83C0017CB70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C66430542788F83D0017CB70 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C6643055278ABF940017CB70 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C678D4A42784B98B00BCF609 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C6871BDA2782ED7F007C760F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		C6871BDC27841DF5007C760F /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				C6115ADC277661F7005AF49D /* LaunchScreen.storyboard */,
 				C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */,
+				C6643055278ABF940017CB70 /* CollectionViewCell.swift */,
 				C6115AD7277661F7005AF49D /* Main.storyboard */,
 				C66430532788F83C0017CB70 /* Localizable.strings */,
 				C6D3DF0427865725006CD62E /* MovieCell.swift */,
@@ -285,6 +288,7 @@
 			files = (
 				C6871BDB2782ED7F007C760F /* ApiService.swift in Sources */,
 				C6D3DF0627865725006CD62E /* MovieCell.swift in Sources */,
+				C6643056278ABF940017CB70 /* CollectionViewCell.swift in Sources */,
 				C6871BDD27841DF5007C760F /* AccountDetailsViewController.swift in Sources */,
 				C6115AD2277661F7005AF49D /* AppDelegate.swift in Sources */,
 				C6A52A4C2780E05400E89AB4 /* MovieTableViewCell.swift in Sources */,
@@ -462,7 +466,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZH86HTK77A;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextWatch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -490,7 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZH86HTK77A;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextWatch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

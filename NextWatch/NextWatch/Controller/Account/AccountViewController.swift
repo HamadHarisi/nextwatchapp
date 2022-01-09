@@ -46,6 +46,10 @@ class AccountViewController: UIViewController {
         
         super.viewDidLoad()
         
+        title = "Movies List"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
 //let mvc = AccountViewController
 //        mvc.refrash()
         

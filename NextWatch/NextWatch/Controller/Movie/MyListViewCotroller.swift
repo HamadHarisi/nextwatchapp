@@ -121,39 +121,24 @@ extension MyListViewCotroller : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view,completionHandler) in
-//                self.handelDelete()
-                self.movies.remove(at: indexPath.row)
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                tableView.endUpdates()
-                completionHandler(true)
-                tableView.deselectRow(at: indexPath, animated: true)
+                let ref = Firestore.firestore().collection("movies")
+                ref.document(self.movies[indexPath.row].id).delete { error in
+                    if let error = error {
+                        print("Error in db",error)
+                    } else {
+                        self.movies.remove(at: indexPath.row)
+                        tableView.beginUpdates()
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                        tableView.endUpdates()
+                        completionHandler(true)
+                        tableView.deselectRow(at: indexPath, animated: true)
+                        }
+                }
                  }
-//        handelDelete()
+
         return UISwipeActionsConfiguration(actions: [delete])
             }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      //  handelDelete()
-//        let ref = Firestore.firestore().collection("movies")
-//        let person = movies[indexPath.row]
-//
-        //diff.document.documentID
-        
-        let ref = Firestore.firestore().collection("movies")
-        if let selectedMovie = selectedMovie {
-            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-            ref.document(selectedMovie.id).delete { error in
-            if let error = error {
-                print("Error in db",error)
-            } else {
-                let storageRef = Storage.storage().reference(withPath: "movies/\(selectedMovie.user.id)/\(selectedMovie.id)")
-                storageRef.delete { error in
-                    if let error = error {
-                        print("Error in storage delete",error)
-                      }
-                   }
-                }
-            }
-        }
+ 
     }
 }

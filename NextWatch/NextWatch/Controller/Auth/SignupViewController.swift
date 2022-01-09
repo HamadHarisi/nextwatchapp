@@ -43,13 +43,17 @@ class SignupViewController : UIViewController
     {didSet{ password.text = "passwordTitle".localized} }
     @IBOutlet weak var rePassword: UILabel!
     {didSet{ rePassword.text = "rePasswordTitle".localized} }
-    
+    @IBOutlet weak var handleSignup: UIButton!
+    @IBOutlet weak var haveAccount: UILabel!
+    {didSet{ rePassword.text = "haveAccount".localized} }
+    @IBOutlet weak var signinInSignupPageLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         // Localization
-//        handleSignup.setTitle(NSLocalizedString("handleSignup", comment: ""), for: .normal)
-        
+        handleSignup.setTitle(NSLocalizedString("handleSignup", comment: ""), for: .normal)
+        signinInSignupPageLabel.setTitle(NSLocalizedString("signinInSignupPageLabel", comment: ""), for: .normal)
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
         imagePickerController.delegate = self

@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  NextWatch
+
+  Created by حمد الحريصي on 08/01/2022.
+  
+*/
+"username" = "اسم المستخدم";
+"signUp" = "إنشاء حساب";
+"logIn" = "تسجيل الدخول";
+"signUpTitle" = "إنشاء حساب";
+"userNameTitle" = "إسم المستخدم";
+"emailTitle" = "البريد الالكتروني";
+"passwordTitle" = "كلمة السر";
+"rePasswordTitle" = "إعادة كتابة كلمة السر";
+"handleSignup" = "إنشاء الحساب";
+"haveAccount" = "لديك حساب؟";
+"signinInSignupPageLabel" = "jj";

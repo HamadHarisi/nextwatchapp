@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  NextWatch
+
+  Created by حمد الحريصي on 08/01/2022.
+  
+*/
+"username" = "usernameInAccointDetails";
+"signUp" = "Greate Account";
+"logIn" = "Login";
+"signUpTitle" = "Greate Account";
+"signUp" = "Greate Account";
+"userNameTitle" = "Username";
+"emailTitle" = "Email";
+"passwordTitle" = "Password";
+"rePasswordTitle" = "RePassword";
+"handleSignup" = "SignUp";
+"haveAccount" = "haveAccount";
+"signinInSignupPageLabel" = "jj";

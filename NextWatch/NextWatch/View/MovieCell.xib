@@ -58,6 +58,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="ViewColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="p36-xX-icz" secondAttribute="bottom" constant="3" id="cw7-p0-Nte"/>
                     <constraint firstAttribute="trailing" secondItem="p36-xX-icz" secondAttribute="trailing" constant="3" id="kVd-sT-RON"/>
@@ -65,6 +66,7 @@
                     <constraint firstItem="p36-xX-icz" firstAttribute="top" secondItem="DX0-Vi-ko7" secondAttribute="top" constant="3" id="tSA-Lg-Lmy"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="ViewColor"/>
             <connections>
                 <outlet property="overViewInMyList" destination="Xde-tC-U8f" id="G02-if-aAe"/>
                 <outlet property="posterInMyList" destination="yhi-AR-Djf" id="C7j-1P-j64"/>
@@ -76,6 +78,9 @@
     <resources>
         <namedColor name="Font Color">
             <color red="0.55699998140335083" green="0.13699999451637268" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ViewColor">
+            <color red="0.94901961089999998" green="0.94901961089999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

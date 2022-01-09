@@ -28,6 +28,9 @@ class MoviesViewController: UIViewController
         
         super.viewDidLoad()
         
+            title = "Movies List"
+            navigationItem.largeTitleDisplayMode = .always
+            navigationController?.navigationBar.prefersLargeTitles = true
         loadPopularMoviesData()
     }
     private func loadPopularMoviesData() {
@@ -47,74 +50,6 @@ class MoviesViewController: UIViewController
 var titleSender = ""
 var overViewSender = ""
 var posterSender = ""
-
-
-//func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    let toMyList = segue.destination as! MyListViewCotroller
-//    //    distenationVC.selectedItem = selectedItem
-////    toMyList.titleResiver = titleSender
-////    toMyList.overViewResiver = overViewSender
-//    // toMyList.poster.image = posterInMyList
-//}
-
-//func getPosts() {
-//        let ref = Firestore.firestore()
-//        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
-//            if let error = error {
-//                print("DB ERROR Posts",error.localizedDescription)
-//            }
-//            if let snapshot = snapshot {
-//                print("POST CANGES:",snapshot.documentChanges.count)
-//                snapshot.documentChanges.forEach { diff in
-//                    let postData = diff.document.data()
-//                    switch diff.type {
-//                    case .added:
-//                        if let userId = postData["userId"] as? String {
-//                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
-//                                if let error = error {
-//                                    print("ERROR user Data", error.localizedDescription)
-//                                }
-//                                if let userSnapshot = userSnapshot,
-//                                   let userData = userSnapshot.data() {
-//                                    let user = User(dict: userData)
-//                                    let post = Movie(dict: postData, id: diff.document.documentID, user: user)
-//                                    self.movieTableView.beginUpdates()
-//                                    if snapshot.documentChanges.count != 1 {
-//                                        self.movies.append(post)
-//
-//                                        self.movieTableView.insertRows(at: [IndexPath(row: self.movies.count - 1 , section: 0)], with: .automatic)
-//                                    }else {
-//                                        self.movies.insert(post,at:0)
-//                                    self.movieTableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
-//                                    }
-//                                    self.movieTableView.endUpdates()
-//                                }
-//                            }
-//                        }
-//                    case .modified:
-//                        let postId = diff.document.documentID
-//                        if let currentPost = self.movies.first(where: {$0.id == postId}),
-//                           let updateIndex = self.movies.firstIndex(where: {$0.id == postId }) {
-//                            let newPost = Movie(dict:postData, id: postId, user: currentPost.user)
-//                            self.movies[updateIndex] = newPost
-//                        }
-//                    case .removed:
-//                        let postId = diff.document.documentID
-//                        if let deleteIndex = self.movies.firstIndex(where: {$0.id == postId }) {
-//                        self.movies.remove(at: deleteIndex)
-//
-//                            self.movieTableView.beginUpdates()
-//                        self.movieTableView.deleteRows(at: [IndexPath(row: deleteIndex, section: 0)], with: .automatic)
-//                        self.movieTableView.endUpdates()
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-
-
-
 
 func saveMovie(selectedMovie:Movie) {
     
@@ -164,11 +99,14 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource
         titleSender = movies[indexPath.row].title ?? "Error"
         overViewSender = movies[indexPath.row].overview ?? "Error"
         posterSender =  movies[indexPath.row].posterImage ?? "Error"
+        let alert1 = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
+        self.present(alert1, animated: false, completion: nil)
         let db = Firestore.firestore()
         let docRef = db.collection("movies").whereField("title", isEqualTo: titleSender).limit(to: 1)
-//        let docRef = db.collection("movies").whereField("title", isEqualTo: "titleSender").limit(to: 1)
         docRef.getDocuments { (querysnapshot, error) in
             if error != nil {
+//                let alert1 = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
+//                self.present(alert1, animated: true, completion: nil)
                 print("Document Error: ", error!)
             } else {
                 if let doc = querysnapshot?.documents, !doc.isEmpty {

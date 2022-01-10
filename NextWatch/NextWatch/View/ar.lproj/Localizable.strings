@@ -15,4 +15,10 @@
 "rePasswordTitle" = "إعادة كتابة كلمة السر";
 "handleSignup" = "إنشاء الحساب";
 "haveAccount" = "لديك حساب؟";
-"signinInSignupPageLabel" = "jj";
+"signinInSignupPageLabel" = "تسجيل الدخول";
+"chose Picture" = "أختر صوره شخصية";
+"CameraTitle" = "الكاميرا";
+"galaryTitle" = "مكتبة الصور";
+"dismissTitle" = "الغاء";
+"SignupMainTitle" = "إنشاء حساب";
+"LoginMainTitle" = "تسجيل الدخول";

@@ -24,8 +24,8 @@ class MoviesViewController: UIViewController
             movieCollectionView.dataSource = self
         }
     }
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
             title = "Movies List"
@@ -34,10 +34,7 @@ class MoviesViewController: UIViewController
         
         loadPopularMoviesData()
     }
-    @IBAction func addToMyList(_ sender: Any) {
-
-    
-    }
+   
     private func loadPopularMoviesData() {
         let apiService = ApiService()
         apiService.getPopularMoviesData { result in

@@ -18,13 +18,14 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var userEmailLabelInAccount: UILabel!
     
     @IBOutlet weak var userNameLabelInAccount: UILabel!
-//    {
-//        didSet
-//        {
-//            userNameLabelInAccount.layer.borderWidth = 0.5
-//            userNameLabelInAccount.layer.borderColor = UIColor.systemGray.cgColor
-//        }
-//    }
+    {
+        didSet
+        {
+            userNameLabelInAccount.text = nameResaver
+        }
+    }
+    var imageResaver = ""
+    var nameResaver = ""
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -32,6 +33,17 @@ class AccountViewController: UIViewController {
     {
         didSet
         {
+            if let imageUrl = URL(string: imageResaver) {
+                DispatchQueue.global().async {
+                    if let imageData = try? Data(contentsOf: imageUrl) {
+                        DispatchQueue.main.async {
+                            if let imageHolder = UIImage(data: imageData) {
+                                self.userImageInAccount.image = imageHolder
+                            }
+                        }
+                    }
+                }
+            }
             userImageInAccount.layer.borderColor = UIColor.systemGray.cgColor
             userImageInAccount.layer.borderWidth = 1
             userImageInAccount.layer.cornerRadius = userImageInAccount.bounds.height / 2
@@ -39,18 +51,12 @@ class AccountViewController: UIViewController {
             userImageInAccount.isUserInteractionEnabled = true
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        getCurrentUserData()
+    }
     override func viewDidLoad()
     {
-//        func refrash() {}
-        
         super.viewDidLoad()
-        
-        title = "Movies List"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-
         if let selectedAccount = selectedAccount,
            let selectedImage = selectedAccountImage {
             userEmailLabelInAccount.text = selectedAccount.email
@@ -58,43 +64,10 @@ class AccountViewController: UIViewController {
             userImageInAccount.image = selectedImage
             editButton.setTitle("Update", for: .normal)
         }
-    
         getCurrentUserData()
     }
-    
-/*
- let refreshAlert = UIAlertController(title: "Refresh", message: "All data will be lost.", preferredStyle: UIAlertController.Style.alert)
-
- refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-       print("Handle Ok logic here")
- }))
-
- refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-       print("Handle Cancel Logic here")
- }))
-
- present(refreshAlert, animated: true, completion: nil)
- */
     @IBAction func signOutButton(_ sender: Any)
     {
-//        let alert = UIAlertController(title: "do you want sign out", message: "", preferredStyle: UIAlertController.Style.alert)
-//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-//            do
-//            {
-//
-//                self.present(alert, animated: true, completion: nil)
-//                try Auth.auth().signOut()
-//                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
-//                {
-//                    vc.modalPresentationStyle = .fullScreen
-//                    self.present(vc, animated: true, completion: nil)
-//                }
-//            } catch {
-//                print("Error In SignOut",error.localizedDescription)
-//
-//            }
-//        }))
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         do
         {
             try Auth.auth().signOut()
@@ -127,6 +100,7 @@ class AccountViewController: UIViewController {
                                 self.userNameLabelInAccount.text = currentUserData.name
                                 self.userEmailLabelInAccount.text = currentUserData.email
                                 self.userImageInAccount.loadImageUsingCache(with: currentUserData.imageUrl)
+//                                self.loadData()
                             }
                         }
                     }

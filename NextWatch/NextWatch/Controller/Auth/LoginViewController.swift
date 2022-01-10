@@ -12,20 +12,46 @@ import Firebase
 class LoginViewController: UIViewController
 {
     var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet weak var scrollView1: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
+    {
+        didSet{
+            emailTextField.layer.cornerRadius = 15
+            emailTextField.layer.borderColor = UIColor.systemFill.cgColor
+            emailTextField.layer.borderWidth = 0.5
+            emailTextField.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var passwordTextField: UITextField!
+    {
+        didSet{
+            passwordTextField.layer.cornerRadius = 15
+            passwordTextField.layer.borderColor = UIColor.systemFill.cgColor
+            passwordTextField.layer.borderWidth = 0.5
+            passwordTextField.layer.masksToBounds = true
+        }
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      if textField == emailTextField {
+         textField.resignFirstResponder()
+          emailTextField.becomeFirstResponder()
+      } else if textField == passwordTextField {
+         textField.resignFirstResponder()
+          passwordTextField.becomeFirstResponder()
+      }
+     return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Localized for title
+        self.navigationItem.title = NSLocalizedString("LoginMainTitle", comment: "")
+        //
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
-    
-//    var usernamesender =
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let toAccount = segue.destination as? AccountViewController
-//        toAccount?.
-//    }
+
     @IBAction func handleLogin(_ sender: Any)
     {
         if let email = emailTextField.text,

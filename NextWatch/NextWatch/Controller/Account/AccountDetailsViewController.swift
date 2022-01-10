@@ -20,9 +20,9 @@ class AccountDetailsViewController : UIViewController
     {
         didSet
         {
-//            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
-//            userImageInAccountDetails.layer.borderWidth = 1
-//            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
+            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
+            userImageInAccountDetails.layer.borderWidth = 1
+            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
             userImageInAccountDetails.layer.masksToBounds = true
             userImageInAccountDetails.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
@@ -39,6 +39,13 @@ class AccountDetailsViewController : UIViewController
         
         imagePickerController.delegate = self
         getCurrentUserData()
+    }
+    let imageSender = ""
+    let nameSender = ""
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let toAccount = segue.destination as? AccountViewController
+        toAccount?.imageResaver = imageSender
+        toAccount?.nameResaver = imageSender
     }
     
     @IBAction func handelEditAccount(_ sender: Any)
@@ -80,6 +87,7 @@ class AccountDetailsViewController : UIViewController
                 }
             }
         }
+        self.dismiss(animated: false, completion: nil)
     }
     func getCurrentUserData()
     {

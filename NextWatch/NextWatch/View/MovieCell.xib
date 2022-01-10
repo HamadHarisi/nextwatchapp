@@ -35,7 +35,7 @@
                                             <constraint firstAttribute="height" constant="50" id="ZeF-td-UdS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="Font Color"/>
+                                        <color key="textColor" name="CustomeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xde-tC-U8f">
@@ -51,6 +51,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" name="ViewColor"/>
                         <constraints>
                             <constraint firstItem="yhi-AR-Djf" firstAttribute="top" secondItem="p36-xX-icz" secondAttribute="top" id="D0L-r2-0s3"/>
                             <constraint firstItem="lde-Lb-DBJ" firstAttribute="leading" secondItem="yhi-AR-Djf" secondAttribute="trailing" constant="8" symbolic="YES" id="IWD-wY-xag"/>
@@ -77,11 +78,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="Font Color">
-            <color red="0.55699998140335083" green="0.13699999451637268" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="CustomeColor">
+            <color red="0.65700000524520874" green="0.13699999451637268" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ViewColor">
-            <color red="0.94901961089999998" green="0.94901961089999998" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

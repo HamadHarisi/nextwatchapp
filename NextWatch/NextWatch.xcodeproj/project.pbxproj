@@ -22,6 +22,7 @@
 		C6151ED02779E3B00011565E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ECF2779E3B00011565E /* Activity.swift */; };
 		C6151ED22779E8340011565E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED12779E8340011565E /* ImageView.swift */; };
 		C6151ED52779F5050011565E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED42779F5050011565E /* User.swift */; };
+		C654AF0F278C25FA00D9AA85 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C654AF0E278C25FA00D9AA85 /* IQKeyboardManagerSwift */; };
 		C66430512788F83C0017CB70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C66430532788F83C0017CB70 /* Localizable.strings */; };
 		C6643056278ABF940017CB70 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6643055278ABF940017CB70 /* CollectionViewCell.swift */; };
 		C678D4A52784B98B00BCF609 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C678D4A42784B98B00BCF609 /* Movie.swift */; };
@@ -75,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6115AE927779065005AF49D /* FirebaseAuth in Frameworks */,
+				C654AF0F278C25FA00D9AA85 /* IQKeyboardManagerSwift in Frameworks */,
 				C6115AEB27779065005AF49D /* FirebaseFirestore in Frameworks */,
 				C6115AED27779065005AF49D /* FirebaseStorage in Frameworks */,
 			);
@@ -223,6 +225,7 @@
 				C6115AE827779065005AF49D /* FirebaseAuth */,
 				C6115AEA27779065005AF49D /* FirebaseFirestore */,
 				C6115AEC27779065005AF49D /* FirebaseStorage */,
+				C654AF0E278C25FA00D9AA85 /* IQKeyboardManagerSwift */,
 			);
 			productName = NextWatch;
 			productReference = C6115ACE277661F7005AF49D /* NextWatch.app */;
@@ -255,6 +258,7 @@
 			mainGroup = C6115AC5277661F7005AF49D;
 			packageReferences = (
 				C6115AE727779065005AF49D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C654AF0D278C25FA00D9AA85 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = C6115ACF277661F7005AF49D /* Products */;
 			projectDirPath = "";
@@ -464,6 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -481,6 +486,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Hamad7arisi.NextWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -509,6 +516,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Hamad7arisi.NextWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -547,6 +555,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		C654AF0D278C25FA00D9AA85 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -564,6 +580,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C6115AE727779065005AF49D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		C654AF0E278C25FA00D9AA85 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C654AF0D278C25FA00D9AA85 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

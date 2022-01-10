@@ -27,9 +27,24 @@ myListTableView.dataSource = self
 myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseIdentifier: "MovieCell")
 }
 }
+//    func loadData() {
+//        // code to load data from network, and refresh the interface
+//        myListTableView.reloadData()
+//    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        title = "Movies List"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+        getMovies()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  print("\(movies.count)")
+        
+        title = "Movies List"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         getMovies()
     }
     func getMovies() {

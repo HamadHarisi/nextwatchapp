@@ -16,4 +16,11 @@
 "rePasswordTitle" = "RePassword";
 "handleSignup" = "SignUp";
 "haveAccount" = "haveAccount";
-"signinInSignupPageLabel" = "jj";
+"signinInSignupPageLabel" = "signin";
+"chose Picture" = "chose Picture";
+"CameraTitle" = "Camera";
+"galaryTitle" = "Photo Library";
+"dismissTitle" = "Cancel";
+"SignupMainTitle" = "Greate Account";
+"LoginMainTitle" = "Login";
+

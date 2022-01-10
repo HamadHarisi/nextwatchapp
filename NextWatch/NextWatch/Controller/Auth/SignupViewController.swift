@@ -8,12 +8,12 @@
 import UIKit
 import Firebase
 
-
 class SignupViewController : UIViewController
 {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
     {
         didSet
@@ -29,12 +29,60 @@ class SignupViewController : UIViewController
     }
     // TextField IBOutlet
     @IBOutlet weak var nameTextField: UITextField!
+    {
+        didSet{
+            nameTextField.layer.cornerRadius = 15
+            nameTextField.layer.borderColor = UIColor.systemFill.cgColor
+            nameTextField.layer.borderWidth = 0.5
+            nameTextField.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var emailTextField: UITextField!
+    {
+        didSet{
+            emailTextField.layer.cornerRadius = 15
+            emailTextField.layer.borderColor = UIColor.systemFill.cgColor
+            emailTextField.layer.borderWidth = 0.5
+            emailTextField.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var passwordTextField: UITextField!
+    {
+        didSet{
+            passwordTextField.layer.cornerRadius = 15
+            passwordTextField.layer.borderColor = UIColor.systemFill.cgColor
+            passwordTextField.layer.borderWidth = 0.5
+            passwordTextField.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var rePasswordTextField: UITextField!
- // Label IBOutlet
-    @IBOutlet weak var signUp: UILabel!
-    {didSet{ signUp.text = "signUpTitle".localized} }
+    {
+        didSet{
+            rePasswordTextField.layer.cornerRadius = 15
+            rePasswordTextField.layer.borderColor = UIColor.systemFill.cgColor
+            rePasswordTextField.layer.borderWidth = 0.5
+            rePasswordTextField.layer.masksToBounds = true
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      if textField == nameTextField {
+         textField.resignFirstResponder()
+          emailTextField.becomeFirstResponder()
+      } else if textField == emailTextField {
+         textField.resignFirstResponder()
+          passwordTextField.becomeFirstResponder()
+      } else if textField == passwordTextField {
+          textField.resignFirstResponder()
+          rePasswordTextField.becomeFirstResponder()
+       }
+        else if textField == passwordTextField {
+         textField.resignFirstResponder()
+      }
+     return true
+    }
+  
+ // Label IBOutlet With Localized
     @IBOutlet weak var userName: UILabel!
     {didSet{ userName.text = "userNameTitle".localized} }
     @IBOutlet weak var email: UILabel!
@@ -45,12 +93,14 @@ class SignupViewController : UIViewController
     {didSet{ rePassword.text = "rePasswordTitle".localized} }
     @IBOutlet weak var handleSignup: UIButton!
     @IBOutlet weak var haveAccount: UILabel!
-    {didSet{ rePassword.text = "haveAccount".localized} }
+    {didSet{ haveAccount.text = "haveAccount".localized} }
     @IBOutlet weak var signinInSignupPageLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        self.navigationItem.title = NSLocalizedString("SignupMainTitle", comment: "")
         // Localization
         handleSignup.setTitle(NSLocalizedString("handleSignup", comment: ""), for: .normal)
         signinInSignupPageLabel.setTitle(NSLocalizedString("signinInSignupPageLabel", comment: ""), for: .normal)
@@ -126,13 +176,17 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
     { showAlert() }
     func showAlert()
     {
-        let alert = UIAlertController(title: "chose Picture", message: "", preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title:" Camera ", style: .default)
+     let title = NSLocalizedString("chose Picture", comment: "")
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
+        let cameraTitle = NSLocalizedString("CameraTitle", comment: "")
+        let cameraAction = UIAlertAction(title: cameraTitle , style: .default)
         { Action in self.getImage(from: .camera ) }
-        let galaryAction = UIAlertAction(title: " Photo Album ", style: .default)
+        let galaryTitle = NSLocalizedString("galaryTitle", comment: "")
+        let galaryAction = UIAlertAction(title: galaryTitle, style: .default)
         { Action in self.getImage(from: .photoLibrary)}
-        let dismissAction = UIAlertAction(title: " Cancle ", style: .destructive)
+        let dismissTitle = NSLocalizedString("dismissTitle", comment: "")
+        let dismissAction = UIAlertAction(title: dismissTitle, style: .cancel)
         { Action in self.dismiss(animated: true, completion: nil) }
         alert.addAction(cameraAction)
         alert.addAction(galaryAction)
@@ -157,6 +211,22 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
     {
         picker.dismiss(animated: true, completion: nil)
     }
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
 }
 extension String
 {
@@ -165,3 +235,4 @@ extension String
         return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
     }
 }
+

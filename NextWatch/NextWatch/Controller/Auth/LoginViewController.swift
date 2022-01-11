@@ -36,7 +36,7 @@ class LoginViewController: UIViewController
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       if textField == emailTextField {
          textField.resignFirstResponder()
-          emailTextField.becomeFirstResponder()
+          passwordTextField.becomeFirstResponder()
       } else if textField == passwordTextField {
          textField.resignFirstResponder()
           passwordTextField.becomeFirstResponder()
@@ -50,6 +50,10 @@ class LoginViewController: UIViewController
         self.navigationItem.title = NSLocalizedString("LoginMainTitle", comment: "")
         //
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+        
+        //\\/\/\//\/\/\/\/\/\/
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @IBAction func handleLogin(_ sender: Any)
@@ -68,5 +72,21 @@ class LoginViewController: UIViewController
             }
         }
         
+    }
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView1.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView1.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView1.contentInset = contentInset
     }
 }

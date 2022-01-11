@@ -17,6 +17,7 @@ class MyListViewCotroller: UIViewController
     var selectedUser:User?
     var selectedPoster:UIImage?
     let activityIndicator = UIActivityIndicatorView()
+    let refreshControl = UIRefreshControl()
     
 @IBOutlet weak var myListTableView: UITableView!
 {
@@ -28,26 +29,26 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
 }
 }
 //    func loadData() {
-//        // code to load data from network, and refresh the interface
 //        myListTableView.reloadData()
 //    }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        title = "Movies List"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
-        getMovies()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        loadData()
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Movies List"
+        getMovies()
+        title = "My List"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
+    
         
-        getMovies()
+//        if getMovies()
+    
+//            refreshControl.tintColor = UIColor.systemRed
+//            refreshControl.addTarget(self, action: #selector(getMovies), for: .valueChanged)
+//            myListTableView.addSubview(refreshControl)
     }
-    func getMovies() {
+   func getMovies() {
         let ref = Firestore.firestore()
         ref.collection("movies").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
             if let error = error {
@@ -59,17 +60,15 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
                     let movieData = diff.document.data()
                     switch diff.type {
                     case .added :
-                        
                         if let userId = movieData["userId"] as? String {
                             if let currentUserId = Auth.auth().currentUser?.uid {
                                 if userId == currentUserId {
                                     ref.collection("users").document(userId).getDocument { userSnapshot, error in
                                         if let error = error {
                                             print("ERROR user Data",error.localizedDescription)
-                                            
                                         }
                                         if let userSnapshot = userSnapshot,
-                                           let userData = userSnapshot.data(){
+                                           let userData = userSnapshot.data() {
                                             let user = User(dict:userData)
                                             let movie = MovieList(dict: movieData, id: diff.document.documentID, user: user)
                                             self.myListTableView.beginUpdates()
@@ -80,7 +79,7 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
                                             }else {
                                                 self.movies.insert(movie,at:0)
                                                 
-                                                self.myListTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
+                                                self.myListTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .left)
                                             }
                                             self.myListTableView.endUpdates()
                                         }
@@ -94,18 +93,15 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
                     let updateIndex = self.movies.firstIndex(where: {$0.title == movieId}){
                         let newMovie = MovieList(dict: movieData, id: movieId, user: currentMovie.user)
                     self.movies[updateIndex] = newMovie
-                         
                                 self.myListTableView.beginUpdates()
                                 self.myListTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
                                 self.myListTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
                                 self.myListTableView.endUpdates()
-                            
                         }
                     case .removed:
                         let movieId = diff.document.documentID
                         if let deleteIndex = self.movies.firstIndex(where: {$0.title == movieId}){
                             self.movies.remove(at: deleteIndex)
-                          
                                 self.myListTableView.beginUpdates()
                                 self.myListTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                                 self.myListTableView.endUpdates()

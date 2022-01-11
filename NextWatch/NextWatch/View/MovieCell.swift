@@ -30,7 +30,14 @@ class MovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configure(with movielist:MovieList) -> UITableViewCell {
+//
+//            self.titleInMyList.text = movielist.title
+//            print("!!!!!!!!! MOVIE NAME",movielist.title)
+//            self.overViewInMyList.text = movielist.overview
+//            self.posterInMyList.loadImageUsingCache(with: movielist.imageUrl )
+//        }
         titleInMyList.text = movielist.title
+        print("!!!!!!!!! MOVIE NAME",movielist.title)
         overViewInMyList.text = movielist.overview
         posterInMyList.loadImageUsingCache(with: movielist.imageUrl )
         return self

@@ -12,9 +12,11 @@ class AccountViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     var selectedAccount:User?
     var selectedAccountImage:UIImage?
+    let refreshControl = UIRefreshControl()
     
     
     
+    @IBOutlet weak var scrollViewInAccount: UIScrollView!
     @IBOutlet weak var userEmailLabelInAccount: UILabel!
     
     @IBOutlet weak var userNameLabelInAccount: UILabel!
@@ -65,6 +67,12 @@ class AccountViewController: UIViewController {
             editButton.setTitle("Update", for: .normal)
         }
         getCurrentUserData()
+        
+        
+        refreshControl.tintColor = UIColor.systemRed
+        refreshControl.addTarget(self, action: #selector(getCurrentUserData), for: .valueChanged)
+        scrollViewInAccount.addSubview(refreshControl)
+        
     }
     @IBAction func signOutButton(_ sender: Any)
     {
@@ -82,7 +90,7 @@ class AccountViewController: UIViewController {
         }
     }
     
-    func getCurrentUserData()
+    @objc func getCurrentUserData()
     {
         let refrance = Firestore.firestore()
         if let currentUser = Auth.auth().currentUser

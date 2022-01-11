@@ -64,7 +64,8 @@ func saveMovie(selectedMovie:Movie) {
             "userId":currentUser,
             "title":selectedMovie.title ?? "No Title",
             "overview":selectedMovie.overview ?? "No Overview" ,
-            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "")",
+            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "No Poster")" ,
+//            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "No Poster")",
             "year":selectedMovie.year ?? "0000",
             "rate":selectedMovie.rate ?? 0.0,
             "createdAt": FieldValue.serverTimestamp(),
@@ -99,9 +100,9 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         titleSender = movies[indexPath.row].title ?? "Error"
          overViewSender = movies[indexPath.row].overview ?? "Error"
          posterSender =  movies[indexPath.row].posterImage ?? "Error"
-         let alert1 = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
-         alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-         self.present(alert1, animated: false, completion: nil)
+//         let alert1 = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
+//         alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//         self.present(alert1, animated: false, completion: nil)
          let db = Firestore.firestore()
          let docRef = db.collection("movies").whereField("title", isEqualTo: titleSender).limit(to: 1)
          docRef.getDocuments { (querysnapshot, error) in

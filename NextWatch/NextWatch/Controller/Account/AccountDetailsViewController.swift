@@ -20,10 +20,10 @@ class AccountDetailsViewController : UIViewController
     {
         didSet
         {
-            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
-            userImageInAccountDetails.layer.borderWidth = 1
-            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
-            userImageInAccountDetails.layer.masksToBounds = true
+//            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
+//            userImageInAccountDetails.layer.borderWidth = 1
+//            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
+//            userImageInAccountDetails.layer.masksToBounds = true
             userImageInAccountDetails.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             userImageInAccountDetails.addGestureRecognizer(tabGesture)

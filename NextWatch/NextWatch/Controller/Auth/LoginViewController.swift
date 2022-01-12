@@ -31,6 +31,18 @@ class LoginViewController: UIViewController
             passwordTextField.layer.masksToBounds = true
         }
     }
+    // Localization
+    
+    @IBOutlet weak var handleLogin: UIButton!
+    @IBOutlet weak var emailLabel: UILabel!
+    {didSet{emailLabel.text = "emailTitleInLogin".localized}}
+    @IBOutlet weak var passwordLabel: UILabel!
+    {didSet{passwordLabel.text = "passwordInTitleInLogin".localized}}
+    @IBOutlet weak var signupInLoginPage: UIButton!
+    @IBOutlet weak var donothaveaccount: UILabel!
+    {didSet{donothaveaccount.text = "Don't Have Account".localized}}
+    
+    
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -48,6 +60,9 @@ class LoginViewController: UIViewController
         super.viewDidLoad()
         // Localized for title
         self.navigationItem.title = NSLocalizedString("LoginMainTitle", comment: "")
+        //
+        signupInLoginPage.setTitle(NSLocalizedString("signupInLoginPage", comment: ""), for: .normal)
+        handleLogin.setTitle(NSLocalizedString("handleLogin", comment: ""), for: .normal)
         //
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         

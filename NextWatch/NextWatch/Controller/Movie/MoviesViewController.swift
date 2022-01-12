@@ -14,8 +14,7 @@ class MoviesViewController: UIViewController
     var selectedPostImage:UIImage?
     let present = UIAlertAction.self
     
-    
-    
+    // outLet for movieCollectionView
     @IBOutlet weak var movieCollectionView: UICollectionView!
     {
         didSet
@@ -31,10 +30,14 @@ class MoviesViewController: UIViewController
             title = "Movies List"
             navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationItem.title = NSLocalizedString("Movies List", comment: "")
+    
         
+        
+        // call for the func that load movie from API
         loadPopularMoviesData()
     }
-   
+   // func that load movieData from API
     private func loadPopularMoviesData() {
         let apiService = ApiService()
         apiService.getPopularMoviesData { result in
@@ -48,10 +51,14 @@ class MoviesViewController: UIViewController
         }
     }
 }
+
+// varibals
 var titleSender = ""
 var overViewSender = ""
 var posterSender = ""
 
+
+// func that save movie to Fiewbase base on currentUser
 func saveMovie(selectedMovie:Movie) {
     
     if let currentUser = Auth.auth().currentUser?.uid {
@@ -64,8 +71,7 @@ func saveMovie(selectedMovie:Movie) {
             "userId":currentUser,
             "title":selectedMovie.title ?? "No Title",
             "overview":selectedMovie.overview ?? "No Overview" ,
-            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "No Poster")" ,
-//            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "No Poster")",
+            "imageUrl":"https://image.tmdb.org/t/p/w300\(selectedMovie.posterImage ?? "No Poster")",
             "year":selectedMovie.year ?? "0000",
             "rate":selectedMovie.rate ?? 0.0,
             "createdAt": FieldValue.serverTimestamp(),
@@ -78,9 +84,6 @@ func saveMovie(selectedMovie:Movie) {
         }
     }
 }
-
-
-
 extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,13 +99,19 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
-            
         titleSender = movies[indexPath.row].title ?? "Error"
          overViewSender = movies[indexPath.row].overview ?? "Error"
          posterSender =  movies[indexPath.row].posterImage ?? "Error"
-//         let alert1 = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
-//         alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//         self.present(alert1, animated: false, completion: nil)
+//        alert when movie selected
+      
+//         let alertDone = UIAlertController(title: "✔︎", message: "", preferredStyle: .alert)
+//        let when = DispatchTime.now() + 2
+//        DispatchQueue.main.asyncAfter(deadline: when) {
+//
+//                      self.present(alertDone, animated: false, completion: nil)
+//                        alertDone.dismiss(animated: true, completion: nil)
+//                    }
+//
          let db = Firestore.firestore()
          let docRef = db.collection("movies").whereField("title", isEqualTo: titleSender).limit(to: 1)
          docRef.getDocuments { (querysnapshot, error) in
@@ -110,11 +119,12 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
                  print("Document Error: ", error!)
              } else {
                  if let doc = querysnapshot?.documents, !doc.isEmpty {
-                     let alert = UIAlertController(title: "This Movie already in your List", message: "", preferredStyle: .alert)
+//                     //
+                     let alert = UIAlertController(title: "⚔︎", message: "This Movie already in your List", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
                      self.present(alert, animated: true, completion: nil)
+//
                  } else {
-                     print("Document is present.")
                      saveMovie(selectedMovie: self.movies[indexPath.row])
                  }
              }
@@ -127,5 +137,4 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.systemGray
     }
-    
 }

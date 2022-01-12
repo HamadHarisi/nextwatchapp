@@ -27,17 +27,11 @@ class MovieCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        // Configure the view for the selected state .movie
     }
     func configure(with movielist:MovieList) -> UITableViewCell {
-//
-//            self.titleInMyList.text = movielist.title
-//            print("!!!!!!!!! MOVIE NAME",movielist.title)
-//            self.overViewInMyList.text = movielist.overview
-//            self.posterInMyList.loadImageUsingCache(with: movielist.imageUrl )
-//        }
+
         titleInMyList.text = movielist.title
-        print("!!!!!!!!! MOVIE NAME",movielist.title)
         overViewInMyList.text = movielist.overview
         posterInMyList.loadImageUsingCache(with: movielist.imageUrl )
         return self

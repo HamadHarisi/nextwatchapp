@@ -16,14 +16,25 @@ class AccountDetailsViewController : UIViewController
     var selectedAccount:User?
     var selectedAccountImage:UIImage?
     
+    
+    // Localization
+    @IBOutlet weak var usernameLabelInAccountDetails: UILabel!
+    {didSet{usernameInAccointDetails.text = "usernameInAccointDetails".localized}}
+    @IBOutlet weak var handelSaveInAccountDetails: UIButton!
+    
+    //
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           getCurrentUserData()
+       }
     @IBOutlet weak var userImageInAccountDetails: UIImageView!
     {
         didSet
         {
-//            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
-//            userImageInAccountDetails.layer.borderWidth = 1
-//            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
-//            userImageInAccountDetails.layer.masksToBounds = true
+            userImageInAccountDetails.layer.borderColor = UIColor.systemFill.cgColor
+            userImageInAccountDetails.layer.borderWidth = 1
+            userImageInAccountDetails.layer.cornerRadius = userImageInAccountDetails.bounds.height / 2
+            userImageInAccountDetails.layer.masksToBounds = true
             userImageInAccountDetails.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             userImageInAccountDetails.addGestureRecognizer(tabGesture)
@@ -33,12 +44,15 @@ class AccountDetailsViewController : UIViewController
 
     @IBOutlet weak var usernameInAccointDetails: UILabel!
     @IBOutlet weak var userNameTextFieldInAccountDetails: UITextField!
+   
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurrentUserData()
         
         imagePickerController.delegate = self
-        getCurrentUserData()
+        handelSaveInAccountDetails.setTitle(NSLocalizedString("handelSaveInAccountDetails", comment: ""), for: .normal)
     }
     let imageSender = ""
     let nameSender = ""

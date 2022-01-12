@@ -65,22 +65,22 @@ class SignupViewController : UIViewController
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      if textField == nameTextField {
-         textField.resignFirstResponder()
-          emailTextField.becomeFirstResponder()
-      } else if textField == emailTextField {
-         textField.resignFirstResponder()
-          passwordTextField.becomeFirstResponder()
-      } else if textField == passwordTextField {
-          textField.resignFirstResponder()
-          rePasswordTextField.becomeFirstResponder()
-       }
-        else if textField == passwordTextField {
-         textField.resignFirstResponder()
-      }
-     return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//      if textField == nameTextField {
+//         textField.resignFirstResponder()
+//          emailTextField.becomeFirstResponder()
+//      } else if textField == emailTextField {
+//         textField.resignFirstResponder()
+//          passwordTextField.becomeFirstResponder()
+//      } else if textField == passwordTextField {
+//          textField.resignFirstResponder()
+//          rePasswordTextField.becomeFirstResponder()
+//       }
+//        else if textField == passwordTextField {
+//         textField.resignFirstResponder()
+//      }
+//     return true
+//    }
   
  // Label IBOutlet With Localized
     @IBOutlet weak var userName: UILabel!
@@ -94,16 +94,18 @@ class SignupViewController : UIViewController
     @IBOutlet weak var handleSignup: UIButton!
     @IBOutlet weak var haveAccount: UILabel!
     {didSet{ haveAccount.text = "haveAccount".localized} }
-    @IBOutlet weak var signinInSignupPageLabel: UIButton!
+    @IBOutlet weak var signinInSignupPage: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
         self.navigationItem.title = NSLocalizedString("SignupMainTitle", comment: "")
         // Localization
+        
         handleSignup.setTitle(NSLocalizedString("handleSignup", comment: ""), for: .normal)
-        signinInSignupPageLabel.setTitle(NSLocalizedString("signinInSignupPageLabel", comment: ""), for: .normal)
+        signinInSignupPage.setTitle(NSLocalizedString("LogininInSignupPage", comment: ""), for: .normal)
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
         imagePickerController.delegate = self
@@ -211,22 +213,22 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
     {
         picker.dismiss(animated: true, completion: nil)
     }
-    @objc func keyboardWillShow(notification:NSNotification) {
-
-        guard let userInfo = notification.userInfo else { return }
-        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 20
-        scrollView.contentInset = contentInset
-    }
-
-    @objc func keyboardWillHide(notification:NSNotification) {
-
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-    }
+//    @objc func keyboardWillShow(notification:NSNotification) {
+//
+//        guard let userInfo = notification.userInfo else { return }
+//        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+//
+//        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+//        contentInset.bottom = keyboardFrame.size.height + 20
+//        scrollView.contentInset = contentInset
+//    }
+//
+//    @objc func keyboardWillHide(notification:NSNotification) {
+//
+//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+//        scrollView.contentInset = contentInset
+//    }
 }
 extension String
 {

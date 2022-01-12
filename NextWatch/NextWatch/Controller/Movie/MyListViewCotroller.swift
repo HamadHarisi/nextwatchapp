@@ -28,25 +28,14 @@ myListTableView.dataSource = self
 myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseIdentifier: "MovieCell")
 }
 }
-//    func loadData() {
-//        myListTableView.reloadData()
-//    }
-//    override func viewDidAppear(_ animated: Bool) {
-//        loadData()
-//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         getMovies()
         title = "My List"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = NSLocalizedString("My List", comment: "")
     
-        
-//        if getMovies()
-    
-//            refreshControl.tintColor = UIColor.systemRed
-//            refreshControl.addTarget(self, action: #selector(getMovies), for: .valueChanged)
-//            myListTableView.addSubview(refreshControl)
     }
    func getMovies() {
         let ref = Firestore.firestore()

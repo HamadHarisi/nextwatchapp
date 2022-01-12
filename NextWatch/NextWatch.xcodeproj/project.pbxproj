@@ -23,6 +23,7 @@
 		C6151ED22779E8340011565E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED12779E8340011565E /* ImageView.swift */; };
 		C6151ED52779F5050011565E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6151ED42779F5050011565E /* User.swift */; };
 		C654AF0F278C25FA00D9AA85 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C654AF0E278C25FA00D9AA85 /* IQKeyboardManagerSwift */; };
+		C662863E278F11F900BB668B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662863D278F11F900BB668B /* TabBarViewController.swift */; };
 		C66430512788F83C0017CB70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C66430532788F83C0017CB70 /* Localizable.strings */; };
 		C6643056278ABF940017CB70 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6643055278ABF940017CB70 /* CollectionViewCell.swift */; };
 		C678D4A52784B98B00BCF609 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C678D4A42784B98B00BCF609 /* Movie.swift */; };
@@ -52,6 +53,7 @@
 		C6151ECF2779E3B00011565E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		C6151ED12779E8340011565E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C6151ED42779F5050011565E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C662863D278F11F900BB668B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C66430492788F6D90017CB70 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C664304A2788F6D90017CB70 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		C664304C2788F7190017CB70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		C6115AF82777A7AA005AF49D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C662863D278F11F900BB668B /* TabBarViewController.swift */,
 				C68076E42786C121000B10A8 /* Movie */,
 				C678D4AB2784DFA300BCF609 /* Account */,
 				C678D4AA2784DF7A00BCF609 /* Auth */,
@@ -303,6 +306,7 @@
 				C6D8A2B32779AE9A005FBD5B /* MoviesViewController.swift in Sources */,
 				C6D3DEFF278649F1006CD62E /* MyList.swift in Sources */,
 				C6151ED22779E8340011565E /* ImageView.swift in Sources */,
+				C662863E278F11F900BB668B /* TabBarViewController.swift in Sources */,
 				C6151ED02779E3B00011565E /* Activity.swift in Sources */,
 				C6151ED52779F5050011565E /* User.swift in Sources */,
 				C678D4A52784B98B00BCF609 /* Movie.swift in Sources */,

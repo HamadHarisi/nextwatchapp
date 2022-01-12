@@ -15,9 +15,10 @@ class AccountViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     
-    
-    @IBOutlet weak var scrollViewInAccount: UIScrollView!
+    // Localization
     @IBOutlet weak var userEmailLabelInAccount: UILabel!
+    @IBOutlet weak var handelSignOut: UIButton!
+    @IBOutlet weak var version: UILabel!
     
     @IBOutlet weak var userNameLabelInAccount: UILabel!
     {
@@ -54,11 +55,13 @@ class AccountViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getCurrentUserData()
     }
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        getCurrentUserData()
         if let selectedAccount = selectedAccount,
            let selectedImage = selectedAccountImage {
             userEmailLabelInAccount.text = selectedAccount.email
@@ -66,13 +69,8 @@ class AccountViewController: UIViewController {
             userImageInAccount.image = selectedImage
             editButton.setTitle("Update", for: .normal)
         }
-        getCurrentUserData()
-        
-        
-        refreshControl.tintColor = UIColor.systemRed
-        refreshControl.addTarget(self, action: #selector(getCurrentUserData), for: .valueChanged)
-        scrollViewInAccount.addSubview(refreshControl)
-        
+        // Localizaion
+        handelSignOut.setTitle(NSLocalizedString("handelSignOut", comment: ""), for: .normal)
     }
     @IBAction func signOutButton(_ sender: Any)
     {
@@ -108,7 +106,6 @@ class AccountViewController: UIViewController {
                                 self.userNameLabelInAccount.text = currentUserData.name
                                 self.userEmailLabelInAccount.text = currentUserData.email
                                 self.userImageInAccount.loadImageUsingCache(with: currentUserData.imageUrl)
-//                                self.loadData()
                             }
                         }
                     }
@@ -117,3 +114,10 @@ class AccountViewController: UIViewController {
         }
     }
 }
+//extension AccountViewController: UITextFieldDelegate
+//{
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.
+//        return true
+//    }
+//}

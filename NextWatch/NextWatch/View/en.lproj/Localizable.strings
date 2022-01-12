@@ -16,11 +16,20 @@
 "rePasswordTitle" = "RePassword";
 "handleSignup" = "SignUp";
 "haveAccount" = "haveAccount";
-"signinInSignupPageLabel" = "signin";
+"LogininInSignupPage" = "Login";
 "chose Picture" = "chose Picture";
 "CameraTitle" = "Camera";
 "galaryTitle" = "Photo Library";
 "dismissTitle" = "Cancel";
 "SignupMainTitle" = "Greate Account";
 "LoginMainTitle" = "Login";
-
+"emailTitleInLogin" = "Email";
+"passwordInTitleInLogin" = "Password";
+"signupInLoginPage" = "Login";
+"handleLogin" = "Login";
+"Don't Have Account" = "Don't Have Account";
+"handelSignOut" = "SignOut";
+"Movies List" = "Movies List";
+"My List" = "My List";
+"usernameInAccointDetails" = "Username";
+"handelSaveInAccountDetails" = "Save";

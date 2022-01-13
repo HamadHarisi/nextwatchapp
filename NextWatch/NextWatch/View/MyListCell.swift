@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class MovieCell: UITableViewCell {
+class MyListCell: UITableViewCell {
     
     @IBOutlet weak var posterInMyList: UIImageView!
     {

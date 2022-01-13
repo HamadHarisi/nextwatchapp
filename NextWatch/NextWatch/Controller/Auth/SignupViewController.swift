@@ -12,7 +12,8 @@ class SignupViewController : UIViewController
 {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
-    
+    @IBOutlet weak var errorInSignup: UILabel!
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
     {
@@ -65,22 +66,6 @@ class SignupViewController : UIViewController
         }
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//      if textField == nameTextField {
-//         textField.resignFirstResponder()
-//          emailTextField.becomeFirstResponder()
-//      } else if textField == emailTextField {
-//         textField.resignFirstResponder()
-//          passwordTextField.becomeFirstResponder()
-//      } else if textField == passwordTextField {
-//          textField.resignFirstResponder()
-//          rePasswordTextField.becomeFirstResponder()
-//       }
-//        else if textField == passwordTextField {
-//         textField.resignFirstResponder()
-//      }
-//     return true
-//    }
   
  // Label IBOutlet With Localized
     @IBOutlet weak var userName: UILabel!
@@ -98,8 +83,10 @@ class SignupViewController : UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        rePasswordTextField.delegate = self
         
         self.navigationItem.title = NSLocalizedString("SignupMainTitle", comment: "")
         // Localization
@@ -124,6 +111,8 @@ class SignupViewController : UIViewController
             Auth.auth().createUser(withEmail: email, password: password)
             {
                 authResult, error in if let error = error {
+                    self.errorInSignup.text = error.localizedDescription
+                    Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                     print("Auth Error!!!!!!!",error.localizedDescription)
                 }
                 if let authResult = authResult
@@ -237,4 +226,9 @@ extension String
         return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
     }
 }
-
+extension SignupViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

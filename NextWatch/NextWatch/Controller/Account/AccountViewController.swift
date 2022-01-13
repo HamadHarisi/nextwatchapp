@@ -13,8 +13,7 @@ class AccountViewController: UIViewController {
     var selectedAccount:User?
     var selectedAccountImage:UIImage?
     let refreshControl = UIRefreshControl()
-    
-    
+    //
     // Localization
     @IBOutlet weak var userEmailLabelInAccount: UILabel!
     @IBOutlet weak var handelSignOut: UIButton!

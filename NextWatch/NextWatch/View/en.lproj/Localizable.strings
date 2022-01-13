@@ -15,7 +15,7 @@
 "passwordTitle" = "Password";
 "rePasswordTitle" = "RePassword";
 "handleSignup" = "SignUp";
-"haveAccount" = "haveAccount";
+"haveAccount" = "Have an Account?";
 "LogininInSignupPage" = "Login";
 "chose Picture" = "chose Picture";
 "CameraTitle" = "Camera";
@@ -25,7 +25,7 @@
 "LoginMainTitle" = "Login";
 "emailTitleInLogin" = "Email";
 "passwordInTitleInLogin" = "Password";
-"signupInLoginPage" = "Login";
+"signupInLoginPage" = "Greate Account";
 "handleLogin" = "Login";
 "Don't Have Account" = "Don't Have Account";
 "handelSignOut" = "SignOut";
@@ -33,3 +33,5 @@
 "My List" = "My List";
 "usernameInAccointDetails" = "Username";
 "handelSaveInAccountDetails" = "Save";
+//"errorInLogin" = "Incorrect Email or Password Please try again";
+//"errorInSignup" = "errorInSignup";

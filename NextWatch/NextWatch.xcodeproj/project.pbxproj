@@ -29,10 +29,9 @@
 		C678D4A52784B98B00BCF609 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C678D4A42784B98B00BCF609 /* Movie.swift */; };
 		C6871BDB2782ED7F007C760F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6871BDA2782ED7F007C760F /* ApiService.swift */; };
 		C6871BDD27841DF5007C760F /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6871BDC27841DF5007C760F /* AccountDetailsViewController.swift */; };
-		C6A52A4C2780E05400E89AB4 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */; };
 		C6D3DEFD27858C89006CD62E /* MyListViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DEFC27858C89006CD62E /* MyListViewCotroller.swift */; };
 		C6D3DEFF278649F1006CD62E /* MyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DEFE278649F1006CD62E /* MyList.swift */; };
-		C6D3DF0627865725006CD62E /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DF0427865725006CD62E /* MovieCell.swift */; };
+		C6D3DF0627865725006CD62E /* MyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3DF0427865725006CD62E /* MyListCell.swift */; };
 		C6D3DF0727865725006CD62E /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D3DF0527865725006CD62E /* MovieCell.xib */; };
 		C6D8A2B12779A32D005FBD5B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */; };
 		C6D8A2B32779AE9A005FBD5B /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */; };
@@ -63,10 +62,9 @@
 		C678D4A42784B98B00BCF609 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C6871BDA2782ED7F007C760F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		C6871BDC27841DF5007C760F /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
-		C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		C6D3DEFC27858C89006CD62E /* MyListViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewCotroller.swift; sourceTree = "<group>"; };
 		C6D3DEFE278649F1006CD62E /* MyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyList.swift; sourceTree = "<group>"; };
-		C6D3DF0427865725006CD62E /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		C6D3DF0427865725006CD62E /* MyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCell.swift; sourceTree = "<group>"; };
 		C6D3DF0527865725006CD62E /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		C6D8A2B02779A32D005FBD5B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C6D8A2B22779AE9A005FBD5B /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -132,13 +130,12 @@
 		C6115AF72777A7A2005AF49D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C6115ADC277661F7005AF49D /* LaunchScreen.storyboard */,
-				C6A52A4A2780E05400E89AB4 /* MovieTableViewCell.swift */,
-				C6643055278ABF940017CB70 /* CollectionViewCell.swift */,
 				C6115AD7277661F7005AF49D /* Main.storyboard */,
-				C66430532788F83C0017CB70 /* Localizable.strings */,
-				C6D3DF0427865725006CD62E /* MovieCell.swift */,
+				C6115ADC277661F7005AF49D /* LaunchScreen.storyboard */,
 				C6D3DF0527865725006CD62E /* MovieCell.xib */,
+				C6D3DF0427865725006CD62E /* MyListCell.swift */,
+				C6643055278ABF940017CB70 /* CollectionViewCell.swift */,
+				C66430532788F83C0017CB70 /* Localizable.strings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,7 +143,7 @@
 		C6115AF82777A7AA005AF49D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C662863D278F11F900BB668B /* TabBarViewController.swift */,
+				C66A5DB1279041B60013938C /* TabBar */,
 				C68076E42786C121000B10A8 /* Movie */,
 				C678D4AB2784DFA300BCF609 /* Account */,
 				C678D4AA2784DF7A00BCF609 /* Auth */,
@@ -170,6 +167,14 @@
 				C6151ED12779E8340011565E /* ImageView.swift */,
 			);
 			path = Utill;
+			sourceTree = "<group>";
+		};
+		C66A5DB1279041B60013938C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C662863D278F11F900BB668B /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		C678D4A92784DF5500BCF609 /* Networking */ = {
@@ -294,11 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6871BDB2782ED7F007C760F /* ApiService.swift in Sources */,
-				C6D3DF0627865725006CD62E /* MovieCell.swift in Sources */,
+				C6D3DF0627865725006CD62E /* MyListCell.swift in Sources */,
 				C6643056278ABF940017CB70 /* CollectionViewCell.swift in Sources */,
 				C6871BDD27841DF5007C760F /* AccountDetailsViewController.swift in Sources */,
 				C6115AD2277661F7005AF49D /* AppDelegate.swift in Sources */,
-				C6A52A4C2780E05400E89AB4 /* MovieTableViewCell.swift in Sources */,
 				C6115AD4277661F7005AF49D /* SceneDelegate.swift in Sources */,
 				C6D8A2B12779A32D005FBD5B /* AccountViewController.swift in Sources */,
 				C6115AF127779CC0005AF49D /* LoginViewController.swift in Sources */,
@@ -478,6 +482,7 @@
 				DEVELOPMENT_TEAM = ZH86HTK77A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextWatch/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "we need access to camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -508,6 +513,7 @@
 				DEVELOPMENT_TEAM = ZH86HTK77A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextWatch/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "we need access to camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

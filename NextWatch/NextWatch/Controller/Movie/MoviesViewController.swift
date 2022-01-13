@@ -32,8 +32,7 @@ class MoviesViewController: UIViewController
             navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.title = NSLocalizedString("Movies List", comment: "")
     
-        
-        
+     
         // call for the func that load movie from API
         loadPopularMoviesData()
     }
@@ -80,11 +79,10 @@ func saveMovie(selectedMovie:Movie) {
             if let error = error {
                 print("FireStore Error\(error.localizedDescription)")
             }
-            //     let alert = UIAlertAction(title: "Done", style: .default)
         }
     }
 }
-extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource
+extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -102,16 +100,6 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         titleSender = movies[indexPath.row].title ?? "Error"
          overViewSender = movies[indexPath.row].overview ?? "Error"
          posterSender =  movies[indexPath.row].posterImage ?? "Error"
-//        alert when movie selected
-      
-//         let alertDone = UIAlertController(title: "✔︎", message: "", preferredStyle: .alert)
-//        let when = DispatchTime.now() + 2
-//        DispatchQueue.main.asyncAfter(deadline: when) {
-//
-//                      self.present(alertDone, animated: false, completion: nil)
-//                        alertDone.dismiss(animated: true, completion: nil)
-//                    }
-//
          let db = Firestore.firestore()
          let docRef = db.collection("movies").whereField("title", isEqualTo: titleSender).limit(to: 1)
          docRef.getDocuments { (querysnapshot, error) in
@@ -119,22 +107,35 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
                  print("Document Error: ", error!)
              } else {
                  if let doc = querysnapshot?.documents, !doc.isEmpty {
-//                     //
-                     let alert = UIAlertController(title: "⚔︎", message: "This Movie already in your List", preferredStyle: .alert)
+                     let alert = UIAlertController(title: "⚠️", message: "This Movie already in your List", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
                      self.present(alert, animated: true, completion: nil)
-//
                  } else {
                      saveMovie(selectedMovie: self.movies[indexPath.row])
+                      let alert = UIAlertController(title: "Success", message: "you can check your list", preferredStyle: UIAlertController.Style.alert)
+                     self.present(alert, animated: true, completion: nil)
+                      DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+                       self.dismiss(animated: true)
+                     }
                  }
              }
          }
         movieCollectionView.deselectItem(at: indexPath, animated: true)
-            
      }
-    
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.systemGray
     }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+//      {
+//              let width  = (view.frame.width-20)/3
+//              return CGSize(width: width, height: width)
+//      }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let itemsPerRow:CGFloat = 2
+//        let padding:CGFloat = 20
+//        let itemWidth = (collectionView.bounds.width / itemsPerRow) - padding:CGFloat
+//        let itemHeight = collectionView.bounds.height - (2 * padding:CGFloat)
+//        return CGSize(width: itemWidth, height: itemHeight)
+//    }
 }

@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.changRadiusOfTabBar()
         self.changHaightOfTabBar()
-        self.changColorTabBar()
+//        self.changColorTabBar()
         // Do any additional setup after loading the view.
     }
     
@@ -46,13 +46,16 @@ class TabBarViewController: UITabBarController {
             propertyAnimmator.addAnimations({barItemView.transform = .identity},delayFactor: CGFloat(timeInterval))
             propertyAnimmator.startAnimation()
         }
-    func changColorTabBar(){
-            self.tabBar.unselectedItemTintColor = .secondaryLabel
+//    func changColorTabBar(){
+//            self.tabBar.unselectedItemTintColor = .secondaryLabel
         
-        self.tabBar.layer.shadowOffset = CGSize (width: 0, height: 0)
-        self.tabBar.layer.shadowRadius = 2
-        self.tabBar.layer.shadowColor = UIColor.blue.cgColor
-        self.tabBar.layer.shadowOpacity = 0.3
-        self.tabBar.tintColor = UIColor.init(red: 142/255, green: 35/255, blue: 60/255, alpha: 1)
-}
+//        self.tabBar.layer.shadowOffset = CGSize (width: 0, height: 0)
+//        self.tabBar.layer.shadowRadius = 2
+//        self.tabBar.layer.shadowColor = UIColor.blue.cgColor
+//        self.tabBar.layer.shadowOpacity = 0.3
+        
+        
+//        self.tabBar.tint
+//    Color = UIColor.init(red: 110/255, green: 47/255, blue: 39/255, alpha: 1)
+//}
 }

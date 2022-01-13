@@ -25,9 +25,9 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
   
-//    @IBAction func addToMyList(_ sender: Any) {
-//        
-//    }
+    @IBAction func addToMyList(_ sender: Any) {
+        
+    }
 
     // Update the UI Views
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {

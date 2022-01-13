@@ -107,7 +107,7 @@ extension MyListViewCotroller : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MyListCell
         return cell.configure(with: movies[indexPath.row])
     }
     
@@ -129,10 +129,9 @@ extension MyListViewCotroller : UITableViewDelegate {
                         }
                 }
                  }
-
         return UISwipeActionsConfiguration(actions: [delete])
             }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
- 
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
 }

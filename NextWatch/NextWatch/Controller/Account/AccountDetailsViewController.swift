@@ -86,22 +86,20 @@ class AccountDetailsViewController : UIViewController
                                 "name":userName,
                                 "email":currentUser.email!,
                                 "imageUrl":url.absoluteString
-
                             ]
-                            ref.document(currentUser.uid).setData(userData)
-                            { error in
-//                            ref.document(postId).setData(postData)
-                                if let error = error {
-                                    print("FireStore Error",error.localizedDescription)
+        ref.document(currentUser.uid).setData(userData)
+            { error in
+            if let error = error {
+            print("FireStore Error",error.localizedDescription)
                                 }
-                                Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
-                                self.navigationController?.popViewController(animated: true)
+Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                self.navigationController?.popViewController(animated: false)
                             }
                     }
                 }
             }
         }
-        self.dismiss(animated: false, completion: nil)
+//        self.dismiss(animated: false, completion: nil)
     }
     func getCurrentUserData()
     {
@@ -170,5 +168,3 @@ extension AccountDetailsViewController: UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
-

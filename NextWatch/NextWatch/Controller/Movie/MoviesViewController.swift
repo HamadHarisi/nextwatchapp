@@ -56,7 +56,6 @@ var titleSender = ""
 var overViewSender = ""
 var posterSender = ""
 
-
 // func that save movie to Fiewbase base on currentUser
 func saveMovie(selectedMovie:Movie) {
     
@@ -90,11 +89,11 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = movieCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        
         let  movie = movies[indexPath.row]
         cell.setCellWithValuesOf(movie)
         return cell
     }
+ 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
         titleSender = movies[indexPath.row].title ?? "Error"
@@ -107,11 +106,13 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
                  print("Document Error: ", error!)
              } else {
                  if let doc = querysnapshot?.documents, !doc.isEmpty {
+                     // alert This Movie already in your List
                      let alert = UIAlertController(title: "⚠️", message: "This Movie already in your List", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
                      self.present(alert, animated: true, completion: nil)
                  } else {
                      saveMovie(selectedMovie: self.movies[indexPath.row])
+                     // alert Success you can check your list
                       let alert = UIAlertController(title: "Success", message: "you can check your list", preferredStyle: UIAlertController.Style.alert)
                      self.present(alert, animated: true, completion: nil)
                       DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
@@ -122,20 +123,8 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
          }
         movieCollectionView.deselectItem(at: indexPath, animated: true)
      }
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.systemGray
-    }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-//      {
-//              let width  = (view.frame.width-20)/3
-//              return CGSize(width: width, height: width)
-//      }
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let itemsPerRow:CGFloat = 2
-//        let padding:CGFloat = 20
-//        let itemWidth = (collectionView.bounds.width / itemsPerRow) - padding:CGFloat
-//        let itemHeight = collectionView.bounds.height - (2 * padding:CGFloat)
-//        return CGSize(width: itemWidth, height: itemHeight)
+//        return CGSize(width: 100, height: 96)
 //    }
+
 }

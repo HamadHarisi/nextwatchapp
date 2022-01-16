@@ -11,6 +11,8 @@ class CollectionViewCell: UICollectionViewCell {
     private var urlString: String = ""
     
     
+ 
+//    @IBOutlet weak var addToMylistButton: UIButton!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var poster: UIImageView!
     {
@@ -19,15 +21,13 @@ class CollectionViewCell: UICollectionViewCell {
             poster.layer.cornerRadius = poster.bounds.height / 20
         }
     }
+    
     // Setup movies values
     func setCellWithValuesOf(_ movie:Movie) {
         updateUI(title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
     }
 
-  
-    @IBAction func addToMyList(_ sender: Any) {
-        
-    }
+
 
     // Update the UI Views
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {

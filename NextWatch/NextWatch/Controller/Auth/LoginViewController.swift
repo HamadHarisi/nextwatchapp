@@ -13,11 +13,6 @@ class LoginViewController: UIViewController
 {
     
     @IBOutlet weak var errorInLogin: UILabel!
-//    let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
-//    alert.addAction(UIAlertAction(title: "Button", style: .default, handler: nil))
-//    self.present(alert, animated: true, completion: nil)
-
-
     var activityIndicator = UIActivityIndicatorView()
     @IBOutlet weak var scrollView1: UIScrollView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -32,6 +27,7 @@ class LoginViewController: UIViewController
     @IBOutlet weak var passwordTextField: UITextField!
     {
         didSet{
+            passwordTextField.isSecureTextEntry = true
             passwordTextField.layer.cornerRadius = 15
             passwordTextField.layer.borderColor = UIColor.systemFill.cgColor
             passwordTextField.layer.borderWidth = 0.5
@@ -63,15 +59,6 @@ class LoginViewController: UIViewController
         handleLogin.setTitle(NSLocalizedString("handleLogin", comment: ""), for: .normal)
         //
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
-//        //\\//\/\/\/\/\/\/\/\/
-        // error alert
-        
-//        let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Button", style: .default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
-        //\\/\/\//\/\/\/\/\/\/
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @IBAction func handleLogin(_ sender: Any)
@@ -80,9 +67,9 @@ class LoginViewController: UIViewController
            let password = passwordTextField.text {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if error == nil {
+                if error != nil {
                 print("Login succesfully")
-                }else{
+                } else {
                 print(error?.localizedDescription as Any)
                     Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                     self.errorInLogin.text = error?.localizedDescription
@@ -96,7 +83,9 @@ class LoginViewController: UIViewController
                     }
                 }
             }
-        }
+                }
+                
+            }
     }
 //    @objc func keyboardWillShow(notification:NSNotification) {
 //
@@ -114,7 +103,6 @@ class LoginViewController: UIViewController
 //        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
 //        scrollView1.contentInset = contentInset
 //    }
-}
 }
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

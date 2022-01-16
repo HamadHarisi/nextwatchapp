@@ -50,6 +50,7 @@ class SignupViewController : UIViewController
     @IBOutlet weak var passwordTextField: UITextField!
     {
         didSet{
+            passwordTextField.isSecureTextEntry = true
             passwordTextField.layer.cornerRadius = 15
             passwordTextField.layer.borderColor = UIColor.systemFill.cgColor
             passwordTextField.layer.borderWidth = 0.5
@@ -59,6 +60,7 @@ class SignupViewController : UIViewController
     @IBOutlet weak var rePasswordTextField: UITextField!
     {
         didSet{
+            rePasswordTextField.isSecureTextEntry = true
             rePasswordTextField.layer.cornerRadius = 15
             rePasswordTextField.layer.borderColor = UIColor.systemFill.cgColor
             rePasswordTextField.layer.borderWidth = 0.5
@@ -143,12 +145,11 @@ class SignupViewController : UIViewController
                                     if let error = error {
                                         print("Database error !!!!!!!!!!! ",error.localizedDescription)
                                     }
-                                    else
-                                    {
-                                        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
-                                            vc.modalPresentationStyle = .fullScreen
-                                            Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
-                                            self.present(vc, animated: true, completion: nil)
+else {
+if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
+    vc.modalPresentationStyle = .fullScreen
+Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+    self.present(vc, animated: true, completion: nil)
                                         }
                                     }
                                 }
@@ -160,7 +161,6 @@ class SignupViewController : UIViewController
         }
     }
 }
-
 extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @objc func selectImage()

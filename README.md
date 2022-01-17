@@ -26,7 +26,7 @@
 - user can delete his movies from (MyList).
 
 
-![](userStories.png)
+![](UserStories.png)
 
 ## FrameWork
 

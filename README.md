@@ -11,7 +11,12 @@
 ![](LightMode.gif)
 
 
-## ERD & user Stories
+## ERD
+
+![](ERD.png)
+
+
+## User Stories
 
 - user can make register & login.
 - user can logout.
@@ -21,7 +26,7 @@
 - user can delete his movies from (MyList).
 
 
-![](userStoriesAndERD.png)
+![](userStories.png)
 
 ## FrameWork
 

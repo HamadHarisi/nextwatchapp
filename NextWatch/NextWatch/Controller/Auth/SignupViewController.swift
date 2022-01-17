@@ -50,7 +50,7 @@ class SignupViewController : UIViewController
     @IBOutlet weak var passwordTextField: UITextField!
     {
         didSet{
-            passwordTextField.isSecureTextEntry = true
+//            passwordTextField.isSecureTextEntry = true
             passwordTextField.layer.cornerRadius = 15
             passwordTextField.layer.borderColor = UIColor.systemFill.cgColor
             passwordTextField.layer.borderWidth = 0.5
@@ -60,7 +60,7 @@ class SignupViewController : UIViewController
     @IBOutlet weak var rePasswordTextField: UITextField!
     {
         didSet{
-            rePasswordTextField.isSecureTextEntry = true
+//            rePasswordTextField.isSecureTextEntry = true
             rePasswordTextField.layer.cornerRadius = 15
             rePasswordTextField.layer.borderColor = UIColor.systemFill.cgColor
             rePasswordTextField.layer.borderWidth = 0.5
@@ -178,7 +178,8 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
         { Action in self.getImage(from: .photoLibrary)}
         let dismissTitle = NSLocalizedString("dismissTitle", comment: "")
         let dismissAction = UIAlertAction(title: dismissTitle, style: .cancel)
-        { Action in self.dismiss(animated: true, completion: nil) }
+        { Action in}
+//            self.dismiss(animated: true, completion: nil) }
         alert.addAction(cameraAction)
         alert.addAction(galaryAction)
         alert.addAction(dismissAction)

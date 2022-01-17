@@ -143,7 +143,9 @@ extension AccountDetailsViewController: UIImagePickerControllerDelegate, UINavig
         { Action in self.getImage(from: .photoLibrary)}
         let dismissTitle = NSLocalizedString("dismissTitle", comment: "")
         let dismissAction = UIAlertAction(title:  dismissTitle, style: .destructive)
-        { Action in self.dismiss(animated: true, completion: nil) }
+        { Action in
+//            self.dismiss(animated: true, completion: nil)
+        }
         alert.addAction(cameraAction)
         alert.addAction(galaryAction)
         alert.addAction(dismissAction)

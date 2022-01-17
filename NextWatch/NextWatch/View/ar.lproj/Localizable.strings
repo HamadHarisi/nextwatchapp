@@ -32,3 +32,7 @@
 "My List" = "قائمتي";
 "usernameInAccointDetails" = "إسم المستخدم";
 "handelSaveInAccountDetails" = "حفظ التغييرات";
+"ExitInAccount" = "خروج";
+"areyousureInAccount" = "هل أنت متأكد";
+"yesInAccount" = "نعم";
+"CancelInAccount" = "إالغاء";

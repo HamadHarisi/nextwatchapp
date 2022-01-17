@@ -13,7 +13,11 @@ class CollectionViewCell: UICollectionViewCell {
     
  
 //    @IBOutlet weak var addToMylistButton: UIButton!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var name: UILabel! {
+        didSet{
+            name.sizeToFit()
+        }
+    }
     @IBOutlet weak var poster: UIImageView!
     {
         didSet

@@ -73,20 +73,40 @@ class AccountViewController: UIViewController {
     }
     @IBAction func signOutButton(_ sender: Any)
     {
-        do
-        {
-            try Auth.auth().signOut()
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
-            {
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-        } catch {
-            print("Error In SignOut",error.localizedDescription)
-
-        }
+        signoutAlert()
+//        do
+//        {
+//            try Auth.auth().signOut()
+//            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
+//            {
+//                vc.modalPresentationStyle = .fullScreen
+//                self.present(vc, animated: true, completion: nil)
+//            }
+//        } catch {
+//            print("Error In SignOut",error.localizedDescription)
+//
+//        }
     }
-    
+    func signoutAlert()
+    {
+        let alert = UIAlertController(title: "ExitInAccount".localized, message: "areyousureInAccount".localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "yesInAccount".localized, style: .destructive, handler:
+                                        { action in
+            do
+            {
+                try Auth.auth().signOut()
+                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
+                {
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+            } catch {
+                print("Error In SignOut",error.localizedDescription)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "CancelInAccount".localized, style: .cancel, handler: nil))
+        present(alert,animated: true,completion: nil)
+                                      }
     @objc func getCurrentUserData()
     {
         let refrance = Firestore.firestore()

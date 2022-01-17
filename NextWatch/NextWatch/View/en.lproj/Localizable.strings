@@ -33,5 +33,7 @@
 "My List" = "My List";
 "usernameInAccointDetails" = "Username";
 "handelSaveInAccountDetails" = "Save";
-//"errorInLogin" = "Incorrect Email or Password Please try again";
-//"errorInSignup" = "errorInSignup";
+"ExitInAccount" = "Exit";
+"areyousureInAccount" = "are you sure";
+"yesInAccount" = "Yes";
+"CancelInAccount" = "Cancel";

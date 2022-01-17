@@ -21,6 +21,7 @@ class MoviesViewController: UIViewController
         {
             movieCollectionView.delegate = self
             movieCollectionView.dataSource = self
+           
         }
     }
     
@@ -35,6 +36,14 @@ class MoviesViewController: UIViewController
      
         // call for the func that load movie from API
         loadPopularMoviesData()
+    }
+    override func viewWillLayoutSubviews() {
+        let collectionFlowLayout = UICollectionViewFlowLayout()
+    
+        if UIScreen.main.bounds.width < 400 {
+              collectionFlowLayout.itemSize = CGSize(width: 172, height: 330)
+              movieCollectionView.collectionViewLayout = collectionFlowLayout
+    }
     }
    // func that load movieData from API
     private func loadPopularMoviesData() {
@@ -89,6 +98,7 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = movieCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        
         let  movie = movies[indexPath.row]
         cell.setCellWithValuesOf(movie)
         return cell
@@ -123,8 +133,4 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
          }
         movieCollectionView.deselectItem(at: indexPath, animated: true)
      }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 100, height: 96)
-//    }
-
 }

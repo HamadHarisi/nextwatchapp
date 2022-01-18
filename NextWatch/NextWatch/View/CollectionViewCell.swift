@@ -10,84 +10,82 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     private var urlString: String = ""
     
-    
- 
 //    @IBOutlet weak var addToMylistButton: UIButton!
-    @IBOutlet weak var name: UILabel! {
+    @IBOutlet weak var titleInCollectionView: UILabel! {
         didSet{
-            name.sizeToFit()
+            titleInCollectionView.sizeToFit()
         }
     }
-    @IBOutlet weak var poster: UIImageView!
+    @IBOutlet weak var posterInCollectionView: UIImageView!
     {
         didSet
         {
-            poster.layer.cornerRadius = poster.bounds.height / 20
+            posterInCollectionView.layer.cornerRadius = posterInCollectionView.bounds.height / 20
         }
     }
+    
+    @IBOutlet weak var fackImageButton: UIImageView!
+    {
+        didSet
+        {
+            fackImageButton.layer.cornerRadius = 7 
+        }
+    }
+    //    let image = UIImage(named: "custom.multiply.circle")
+////    @IBOutlet weak var myListLabel: UILabel!
+//    {
+//        didSet
+//        {
+//            myListLabel.layer.cornerRadius = 7
+//            myListLabel.layer.masksToBounds = true
+//
+////            myListLabel.text = "\(String(describing: UIImage(named: "SMNWH")!))"
+//        }
+//    }
     
     // Setup movies values
     func setCellWithValuesOf(_ movie:Movie) {
         updateUI(title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
     }
 
-
-
     // Update the UI Views
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {
         
-        self.name.text = title
-//        self.overview.text = overview
+        self.titleInCollectionView.text = title
         
         guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
         
         guard let posterImageURL = URL(string: urlString) else {
-            self.poster.image = UIImage(named: "noImageAvailable")
+            self.posterInCollectionView.image = UIImage(named: "noImageAvailable")
             return
         }
         
-        // Before we download the image we clear out the old one
-        self.poster.image = nil
+        // Clear before download new one
+        self.posterInCollectionView.image = nil
         
         getImageDataFrom(url: posterImageURL)
         
     }
     
-    // MARK: - Get image data
+    // Get image data
     private func getImageDataFrom(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Handle Error
             if let error = error {
                 print("DataTask error: \(error.localizedDescription)")
                 return
             }
             
             guard let data = data else {
-                // Handle Empty Data
                 print("Empty Data")
                 return
             }
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data) {
-                    self.poster.image = image
+                    self.posterInCollectionView.image = image
                 }
             }
         }.resume()
-    }
-    
-    // MARK: - Convert date format
-    func convertDateFormater(_ date: String?) -> String {
-        var fixDate = ""
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let originalDate = date {
-            if let newDate = dateFormatter.date(from: originalDate) {
-                dateFormatter.dateFormat = "dd.MM.yyyy"
-                fixDate = dateFormatter.string(from: newDate)
-            }
-        }
-        return fixDate
     }
 }

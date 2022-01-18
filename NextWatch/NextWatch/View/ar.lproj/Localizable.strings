@@ -35,4 +35,8 @@
 "ExitInAccount" = "خروج";
 "areyousureInAccount" = "هل أنت متأكد";
 "yesInAccount" = "نعم";
-"CancelInAccount" = "إالغاء";
+"CancelInAccount" = "إلغاء";
+"RepeatAlertInMVC" = "هذا الفيلم موجود بالفعل في قائمتك";
+"OKInMVC" = "تم";
+"SuccessInMVC" = "تم الإضافة بنجاح إلى قائمتك";
+"Delete" = "حذف";

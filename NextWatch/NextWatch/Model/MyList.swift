@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+// custome list struct
 struct MovieList {
     var id       = ""
     var title    = ""

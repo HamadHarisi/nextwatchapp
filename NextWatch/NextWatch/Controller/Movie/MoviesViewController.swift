@@ -14,7 +14,7 @@ class MoviesViewController: UIViewController
     var selectedPostImage:UIImage?
     let present = UIAlertAction.self
     
-    // outLet for movieCollectionView
+    // Outlet for movieCollectionView
     @IBOutlet weak var movieCollectionView: UICollectionView!
     {
         didSet
@@ -27,7 +27,7 @@ class MoviesViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Large Title
             title = "Movies List"
             navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = true
@@ -37,14 +37,15 @@ class MoviesViewController: UIViewController
         // call for the func that load movie from API
         loadPopularMoviesData()
     }
+    // condition for collectionview in small divaice
     override func viewWillLayoutSubviews() {
         let collectionFlowLayout = UICollectionViewFlowLayout()
-    
         if UIScreen.main.bounds.width < 400 {
-              collectionFlowLayout.itemSize = CGSize(width: 172, height: 330)
+              collectionFlowLayout.itemSize = CGSize(width: 170, height: 335)
               movieCollectionView.collectionViewLayout = collectionFlowLayout
     }
     }
+    
    // func that load movieData from API
     private func loadPopularMoviesData() {
         let apiService = ApiService()
@@ -65,7 +66,7 @@ var titleSender = ""
 var overViewSender = ""
 var posterSender = ""
 
-// func that save movie to Fiewbase base on currentUser
+// func that save movie to Fierbase base on currentUser
 func saveMovie(selectedMovie:Movie) {
     
     if let currentUser = Auth.auth().currentUser?.uid {
@@ -117,13 +118,13 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
              } else {
                  if let doc = querysnapshot?.documents, !doc.isEmpty {
                      // alert This Movie already in your List
-                     let alert = UIAlertController(title: "⚠️", message: "This Movie already in your List", preferredStyle: .alert)
-                     alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+                     let alert = UIAlertController(title: "❌", message: "RepeatAlertInMVC".localized, preferredStyle: .alert)
+                     alert.addAction(UIAlertAction(title: "OKInMVC".localized, style: .destructive, handler: nil))
                      self.present(alert, animated: true, completion: nil)
                  } else {
                      saveMovie(selectedMovie: self.movies[indexPath.row])
                      // alert Success you can check your list
-                      let alert = UIAlertController(title: "Success", message: "you can check your list", preferredStyle: UIAlertController.Style.alert)
+                     let alert = UIAlertController(title: "SuccessInMVC".localized, message: "", preferredStyle: UIAlertController.Style.alert)
                      self.present(alert, animated: true, completion: nil)
                       DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
                        self.dismiss(animated: true)
@@ -133,4 +134,24 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
          }
         movieCollectionView.deselectItem(at: indexPath, animated: true)
      }
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
+                cell.posterInCollectionView.transform = .init(scaleX: 1.5, y: 1.5)
+                cell.titleInCollectionView.transform = .init(scaleX: 1.5, y: 1.5)
+                cell.fackImageButton.transform = .init(scaleX: 1.5, y: 1.5)
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
+                cell.posterInCollectionView.transform = .identity
+                cell.titleInCollectionView.transform = .identity
+                cell.fackImageButton.transform = .identity
+                cell.contentView.backgroundColor = .clear
+            }
+        }
+    }
 }

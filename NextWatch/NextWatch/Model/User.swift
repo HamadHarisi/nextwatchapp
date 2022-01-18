@@ -7,7 +7,7 @@
 
 import Foundation
 import Firebase
-
+// user struct
 struct User
 {
     var id = ""

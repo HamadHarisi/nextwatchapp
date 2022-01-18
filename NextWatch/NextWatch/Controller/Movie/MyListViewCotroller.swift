@@ -114,7 +114,7 @@ extension MyListViewCotroller : UITableViewDataSource {
 }
 extension MyListViewCotroller : UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view,completionHandler) in
+        let delete = UIContextualAction(style: .destructive, title: "Delete".localized) { (action, view,completionHandler) in
                 let ref = Firestore.firestore().collection("movies")
                 ref.document(self.movies[indexPath.row].id).delete { error in
                     if let error = error {

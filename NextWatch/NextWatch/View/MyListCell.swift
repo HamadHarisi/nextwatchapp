@@ -15,15 +15,14 @@ class MyListCell: UITableViewCell {
             posterInMyList.layer.cornerRadius = posterInMyList.bounds.height / 20
         }
     }
+    // Outlet Label Variables
     @IBOutlet weak var titleInMyList: UILabel!
     @IBOutlet weak var overViewInMyList: UILabel!
-  
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

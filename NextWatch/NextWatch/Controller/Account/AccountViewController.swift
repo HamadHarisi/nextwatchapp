@@ -53,6 +53,7 @@ class AccountViewController: UIViewController {
             userImageInAccount.isUserInteractionEnabled = true
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCurrentUserData()

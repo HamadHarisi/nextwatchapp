@@ -37,3 +37,8 @@
 "areyousureInAccount" = "are you sure";
 "yesInAccount" = "Yes";
 "CancelInAccount" = "Cancel";
+"RepeatAlertInMVC" = "This Movie already in your List";
+"OKInMVC" = "OK";
+"SuccessInMVC" = "Success";
+"SuccessMessageInMVC" = "You Can Chack Your List";
+"Delete" = "Delete";

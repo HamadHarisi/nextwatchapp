@@ -42,3 +42,6 @@
 "SuccessInMVC" = "Success";
 "SuccessMessageInMVC" = "You Can Chack Your List";
 "Delete" = "Delete";
+"tab1" = "Movies List";
+"tab2" = "My List";
+"tab3" = "Account";

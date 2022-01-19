@@ -120,10 +120,10 @@
                                 <rect key="frame" x="22" y="44" width="331" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9mf-pR-pam">
-                                        <rect key="frame" x="22" y="8" width="287" height="607"/>
+                                        <rect key="frame" x="22" y="8" width="289" height="607"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tZv-6t-e3M">
-                                                <rect key="frame" x="68.5" y="0.5" width="150" height="149"/>
+                                                <rect key="frame" x="69.5" y="0.5" width="150" height="149"/>
                                                 <color key="tintColor" systemColor="tertiarySystemFillColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="bEz-og-TY5"/>
@@ -131,52 +131,52 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WrC-ia-2ML">
-                                                <rect key="frame" x="0.0" y="152" width="287" height="252"/>
+                                                <rect key="frame" x="0.0" y="152" width="289" height="252"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-On-rMk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="289" height="21"/>
                                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                         <color key="textColor" name="MainColorFont"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="jdO-2T-wAT">
-                                                        <rect key="frame" x="0.0" y="26" width="287" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="26" width="289" height="33.5"/>
                                                         <color key="backgroundColor" name="ViewColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="next" smartDashesType="yes" textContentType="username"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail            " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCY-cg-1Lg">
-                                                        <rect key="frame" x="0.0" y="64.5" width="287" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="64.5" width="289" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                         <color key="textColor" name="MainColorFont"/>
                                                         <color key="highlightedColor" name="Font Color"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trT-Yy-w4k">
-                                                        <rect key="frame" x="0.0" y="90" width="287" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="90" width="289" height="33.5"/>
                                                         <color key="backgroundColor" name="ViewColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password      " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X6-Sn-Oy7">
-                                                        <rect key="frame" x="0.0" y="128.5" width="287" height="21"/>
+                                                        <rect key="frame" x="0.0" y="128.5" width="289" height="21"/>
                                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                         <color key="textColor" name="MainColorFont"/>
                                                         <color key="highlightedColor" name="Font Color"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZfX-PQ-9b6">
-                                                        <rect key="frame" x="0.0" y="154.5" width="287" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="154.5" width="289" height="33.5"/>
                                                         <color key="backgroundColor" name="ViewColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Re-Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5X-gO-Vnx">
-                                                        <rect key="frame" x="0.0" y="193" width="287" height="21"/>
+                                                        <rect key="frame" x="0.0" y="193" width="289" height="21"/>
                                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                         <color key="textColor" name="MainColorFont"/>
                                                         <color key="highlightedColor" name="Font Color"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNG-n6-bza">
-                                                        <rect key="frame" x="0.0" y="219" width="287" height="33"/>
+                                                        <rect key="frame" x="0.0" y="219" width="289" height="33"/>
                                                         <color key="backgroundColor" name="ViewColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -184,10 +184,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="TZU-ix-Bfv">
-                                                <rect key="frame" x="0.0" y="432" width="287" height="175"/>
+                                                <rect key="frame" x="0.0" y="432" width="289" height="175"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViJ-Mu-0E2">
-                                                        <rect key="frame" x="8" y="8" width="271" height="35"/>
+                                                        <rect key="frame" x="8" y="8" width="273" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="315" id="IEL-gF-C2y"/>
                                                             <constraint firstAttribute="height" constant="35" id="d88-1V-Ozd"/>
@@ -209,17 +209,17 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyz-bH-EOA">
-                                                        <rect key="frame" x="8" y="70" width="271" height="50"/>
+                                                        <rect key="frame" x="8" y="70" width="273" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="LBd-8N-8vU"/>
                                                             <constraint firstAttribute="width" constant="350" id="mUM-lN-Dtl"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="MainColorFont"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="4HH-Ey-rJg">
-                                                        <rect key="frame" x="82" y="147" width="123.5" height="20"/>
+                                                        <rect key="frame" x="83" y="147" width="123.5" height="20"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcG-mx-Bg6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="20"/>
@@ -504,57 +504,6 @@
             </objects>
             <point key="canvasLocation" x="262" y="573"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="PbX-C8-Pef">
-            <objects>
-                <viewController id="Ba5-nt-1Dh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LZa-UN-ppd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVG-2i-29W">
-                                <rect key="frame" x="106" y="319" width="162.5" height="28"/>
-                                <color key="backgroundColor" name="MainColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="A3D-uJ-ctu"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="162" id="acv-CW-IgH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoNastaliqUrdu" family="Noto Nastaliq Urdu" pointSize="18"/>
-                                <color key="textColor" name="ViewColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-ke-1HP">
-                                <rect key="frame" x="106" y="319" width="162" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="MainColor"/>
-                                <fontDescription key="fontDescription" name="NotoNastaliqUrdu" family="Noto Nastaliq Urdu" pointSize="18"/>
-                                <color key="textColor" name="ViewColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-AP-ZFQ">
-                                <rect key="frame" x="98" y="134" width="150" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="MainColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="">
-                                    <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="small"/>
-                                    <color key="baseForegroundColor" name="ViewColor"/>
-                                </buttonConfiguration>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bookmark.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XED-Xt-xsE">
-                                <rect key="frame" x="106" y="326" width="162.5" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="ViewColor"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="mpG-hg-zkP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J8G-CG-3u0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1741.5999999999999" y="846.9265367316342"/>
-        </scene>
         <!--Movies View Controller-->
         <scene sceneID="Snf-nd-9L3">
             <objects>
@@ -583,7 +532,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5oX-Du-SKN">
                                                     <rect key="frame" x="5" y="5" width="162" height="340"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Spider-Man-No-Way-Home" translatesAutoresizingMaskIntoConstraints="NO" id="VWc-Vb-J5k">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="SMNWH" translatesAutoresizingMaskIntoConstraints="NO" id="VWc-Vb-J5k">
                                                             <rect key="frame" x="0.0" y="0.0" width="162" height="252"/>
                                                             <color key="tintColor" systemColor="placeholderTextColor"/>
                                                             <constraints>
@@ -637,7 +586,8 @@
                                         <color key="tintColor" name="MainColorFont"/>
                                         <size key="customSize" width="172" height="350"/>
                                         <connections>
-                                            <outlet property="fackImageButton" destination="TkN-d5-44W" id="EPU-cZ-ay2"/>
+                                            <outlet property="booktagImage" destination="TkN-d5-44W" id="xDe-Dd-uLl"/>
+                                            <outlet property="contentViewInCollectionViewCell" destination="lUx-zx-ZP4" id="ZMg-1S-VoP"/>
                                             <outlet property="posterInCollectionView" destination="VWc-Vb-J5k" id="WaG-b7-s2w"/>
                                             <outlet property="titleInCollectionView" destination="Hve-jc-5d2" id="RZR-bz-hKS"/>
                                         </connections>
@@ -1021,7 +971,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kpB-18-r0Q"/>
+        <segue reference="pBw-Jr-th8"/>
         <segue reference="f6D-x2-OM9"/>
         <segue reference="MtZ-9l-jrA"/>
     </inferredMetricsTieBreakers>
@@ -1029,7 +979,7 @@
     <resources>
         <image name="Logo" width="2048" height="2048"/>
         <image name="Mass Circles" width="2048" height="2048"/>
-        <image name="Spider-Man-No-Way-Home" width="559" height="846"/>
+        <image name="SMNWH" width="559" height="846"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
@@ -1062,9 +1012,6 @@
         </systemColor>
         <systemColor name="quaternarySystemFillColor">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiarySystemFillColor">
             <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>

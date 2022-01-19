@@ -62,6 +62,7 @@ class AccountViewController: UIViewController {
     {
         super.viewDidLoad()
         getCurrentUserData()
+//        title = "Account".localized
         if let selectedAccount = selectedAccount,
            let selectedImage = selectedAccountImage {
             userEmailLabelInAccount.text = selectedAccount.email

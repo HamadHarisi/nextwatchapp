@@ -23,12 +23,18 @@ class CollectionViewCell: UICollectionViewCell {
             posterInCollectionView.layer.cornerRadius = posterInCollectionView.bounds.height / 20
         }
     }
-    
-    @IBOutlet weak var fackImageButton: UIImageView!
+    @IBOutlet weak var contentViewInCollectionViewCell: UIView!
     {
         didSet
         {
-            fackImageButton.layer.cornerRadius = 7 
+            contentViewInCollectionViewCell.layer.cornerRadius = 18
+        }
+    }
+    @IBOutlet weak var booktagImage: UIImageView!
+    {
+        didSet
+        {
+            booktagImage.layer.cornerRadius = 7
         }
     }
     //    let image = UIImage(named: "custom.multiply.circle")

@@ -28,14 +28,17 @@ myListTableView.dataSource = self
 myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseIdentifier: "MovieCell")
 }
 }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        myListTableView.reloadData()
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMovies()
-        title = "My List"
+//        myListTableView.reloadData()
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = NSLocalizedString("My List", comment: "")
-    
+        getMovies()
     }
    func getMovies() {
         let ref = Firestore.firestore()
@@ -115,8 +118,8 @@ extension MyListViewCotroller : UITableViewDataSource {
 extension MyListViewCotroller : UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete".localized) { (action, view,completionHandler) in
-                let ref = Firestore.firestore().collection("movies")
-                ref.document(self.movies[indexPath.row].id).delete { error in
+            let ref = Firestore.firestore().collection("movies")
+            ref.document(self.movies[indexPath.row].id).delete { error in
                     if let error = error {
                         print("Error in db",error)
                     } else {
@@ -131,7 +134,4 @@ extension MyListViewCotroller : UITableViewDelegate {
                  }
         return UISwipeActionsConfiguration(actions: [delete])
             }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
 }

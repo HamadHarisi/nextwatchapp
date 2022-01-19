@@ -13,6 +13,9 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.changRadiusOfTabBar()
         self.changHaightOfTabBar()
+        tabBar.items![0].title = NSLocalizedString("tab1".localized, comment: "")
+        tabBar.items![1].title = NSLocalizedString("tab2".localized, comment: "")
+        tabBar.items![2].title = NSLocalizedString("tab3".localized, comment: "")
     }
     
 

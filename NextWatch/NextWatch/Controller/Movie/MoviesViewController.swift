@@ -28,7 +28,9 @@ class MoviesViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Large Title
-            title = "Movies List"
+//        title = "Movies List".localized
+//        title = "My List".localized
+//        title = "Account".localized
             navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.title = NSLocalizedString("Movies List", comment: "")
@@ -65,7 +67,6 @@ class MoviesViewController: UIViewController
 var titleSender = ""
 var overViewSender = ""
 var posterSender = ""
-
 // func that save movie to Fierbase base on currentUser
 func saveMovie(selectedMovie:Movie) {
     
@@ -104,9 +105,7 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.setCellWithValuesOf(movie)
         return cell
     }
- 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
         titleSender = movies[indexPath.row].title ?? "Error"
          overViewSender = movies[indexPath.row].overview ?? "Error"
          posterSender =  movies[indexPath.row].posterImage ?? "Error"
@@ -118,7 +117,7 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
              } else {
                  if let doc = querysnapshot?.documents, !doc.isEmpty {
                      // alert This Movie already in your List
-                     let alert = UIAlertController(title: "❌", message: "RepeatAlertInMVC".localized, preferredStyle: .alert)
+                     let alert = UIAlertController(title: "RepeatAlertInMVC".localized, message: "", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "OKInMVC".localized, style: .destructive, handler: nil))
                      self.present(alert, animated: true, completion: nil)
                  } else {
@@ -139,17 +138,16 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
                 cell.posterInCollectionView.transform = .init(scaleX: 1.5, y: 1.5)
                 cell.titleInCollectionView.transform = .init(scaleX: 1.5, y: 1.5)
-                cell.fackImageButton.transform = .init(scaleX: 1.5, y: 1.5)
+                cell.booktagImage.transform = .init(scaleX: 1.5, y: 1.5)
             }
         }
     }
-
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.5) {
             if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
                 cell.posterInCollectionView.transform = .identity
                 cell.titleInCollectionView.transform = .identity
-                cell.fackImageButton.transform = .identity
+                cell.booktagImage.transform = .identity
                 cell.contentView.backgroundColor = .clear
             }
         }

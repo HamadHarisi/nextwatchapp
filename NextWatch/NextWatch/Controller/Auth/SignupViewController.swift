@@ -50,7 +50,6 @@ class SignupViewController : UIViewController
     @IBOutlet weak var passwordTextField: UITextField!
     {
         didSet{
-//            passwordTextField.isSecureTextEntry = true
             passwordTextField.layer.cornerRadius = 15
             passwordTextField.layer.borderColor = UIColor.systemFill.cgColor
             passwordTextField.layer.borderWidth = 0.5
@@ -60,7 +59,6 @@ class SignupViewController : UIViewController
     @IBOutlet weak var rePasswordTextField: UITextField!
     {
         didSet{
-//            rePasswordTextField.isSecureTextEntry = true
             rePasswordTextField.layer.cornerRadius = 15
             rePasswordTextField.layer.borderColor = UIColor.systemFill.cgColor
             rePasswordTextField.layer.borderWidth = 0.5
@@ -68,7 +66,6 @@ class SignupViewController : UIViewController
         }
     }
     
-  
  // Label IBOutlet With Localized
     @IBOutlet weak var userName: UILabel!
     {didSet{ userName.text = "userNameTitle".localized} }
@@ -203,22 +200,6 @@ extension SignupViewController: UIImagePickerControllerDelegate, UINavigationCon
     {
         picker.dismiss(animated: true, completion: nil)
     }
-//    @objc func keyboardWillShow(notification:NSNotification) {
-//
-//        guard let userInfo = notification.userInfo else { return }
-//        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-//
-//        var contentInset:UIEdgeInsets = self.scrollView.contentInset
-//        contentInset.bottom = keyboardFrame.size.height + 20
-//        scrollView.contentInset = contentInset
-//    }
-//
-//    @objc func keyboardWillHide(notification:NSNotification) {
-//
-//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-//        scrollView.contentInset = contentInset
-//    }
 }
 extension String
 {

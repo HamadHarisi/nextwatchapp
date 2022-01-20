@@ -12,7 +12,7 @@ private var dataTask: URLSessionDataTask?
 
 func getPopularMoviesData(completion: @escaping (Result<MoviesData, Error>) -> Void) {
     
-    let popularMoviesURL = "https://api.themoviedb.org/3/movie/popular?api_key=4e0be2c22f7268edffde97481d49064a&language=en-US&page=1"
+let popularMoviesURL = "https://api.themoviedb.org/3/movie/popular?api_key=4e0be2c22f7268edffde97481d49064a&language=en-US&page=1"
     
     guard let url = URL(string: popularMoviesURL) else {return}
     

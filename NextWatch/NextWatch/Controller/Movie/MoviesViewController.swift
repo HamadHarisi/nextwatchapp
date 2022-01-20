@@ -28,9 +28,6 @@ class MoviesViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Large Title
-//        title = "Movies List".localized
-//        title = "My List".localized
-//        title = "Account".localized
             navigationItem.largeTitleDisplayMode = .always
             navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.title = NSLocalizedString("Movies List", comment: "")
@@ -47,7 +44,6 @@ class MoviesViewController: UIViewController
               movieCollectionView.collectionViewLayout = collectionFlowLayout
     }
     }
-    
    // func that load movieData from API
     private func loadPopularMoviesData() {
         let apiService = ApiService()
@@ -71,8 +67,6 @@ var posterSender = ""
 func saveMovie(selectedMovie:Movie) {
     
     if let currentUser = Auth.auth().currentUser?.uid {
-        //    Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-        
         var movieData = [String:Any]()
         let db = Firestore.firestore()
         let ref = db.collection("movies")

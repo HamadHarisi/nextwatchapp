@@ -65,7 +65,6 @@ class SignupViewController : UIViewController
             rePasswordTextField.layer.masksToBounds = true
         }
     }
-    
  // Label IBOutlet With Localized
     @IBOutlet weak var userName: UILabel!
     {didSet{ userName.text = "userNameTitle".localized} }

@@ -17,8 +17,6 @@ class TabBarViewController: UITabBarController {
         tabBar.items![1].title = NSLocalizedString("tab2".localized, comment: "")
         tabBar.items![2].title = NSLocalizedString("tab3".localized, comment: "")
     }
-    
-
         // radius
         func changRadiusOfTabBar(){
             self.tabBar.layer.masksToBounds = true
@@ -38,6 +36,7 @@ class TabBarViewController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
             self.simpleInimitionItem(item)
         }
+    
         func simpleInimitionItem(_ item : UITabBarItem){
             
             guard let barItemView = item.value(forKey: "view") as? UIView else {return}

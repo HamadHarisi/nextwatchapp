@@ -11,7 +11,6 @@ import Firebase
 
 class LoginViewController: UIViewController
 {
-    
     @IBOutlet weak var errorInLogin: UILabel!
     var activityIndicator = UIActivityIndicatorView()
     @IBOutlet weak var scrollView1: UIScrollView!
@@ -35,7 +34,6 @@ class LoginViewController: UIViewController
         }
     }
     // Localization
-    
     @IBOutlet weak var handleLogin: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     {didSet{emailLabel.text = "emailTitleInLogin".localized}}

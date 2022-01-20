@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 class MyListViewCotroller: UIViewController
 {
-    let context = (UIApplication.shared.delegate as! AppDelegate)    //.persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate)
     
     
     var movies = [MovieList]()
@@ -18,7 +18,7 @@ class MyListViewCotroller: UIViewController
     var selectedPoster:UIImage?
     let activityIndicator = UIActivityIndicatorView()
     let refreshControl = UIRefreshControl()
-    
+ // outlet for the tableview
 @IBOutlet weak var myListTableView: UITableView!
 {
 didSet
@@ -28,18 +28,14 @@ myListTableView.dataSource = self
 myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseIdentifier: "MovieCell")
 }
 }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        myListTableView.reloadData()
-//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        myListTableView.reloadData()
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = NSLocalizedString("My List", comment: "")
         getMovies()
     }
+    // function for get movies list from firestore
    func getMovies() {
         let ref = Firestore.firestore()
         ref.collection("movies").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
@@ -104,6 +100,7 @@ myListTableView.register(UINib(nibName: "MovieCell", bundle: nil),forCellReuseId
         }
     }
 }
+// extension for tableview
 extension MyListViewCotroller : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return movies.count

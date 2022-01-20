@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class AccountDetailsViewController : UIViewController
+class AccountDetailsViewController : UIViewController, UITextFieldDelegate
 {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
@@ -45,12 +45,13 @@ class AccountDetailsViewController : UIViewController
     @IBOutlet weak var usernameInAccointDetails: UILabel!
     @IBOutlet weak var userNameTextFieldInAccountDetails: UITextField!
    
-    
-   
     override func viewDidLoad() {
         super.viewDidLoad()
+//        call for the function getCurrentUserData
         getCurrentUserData()
-        
+//
+        userNameTextFieldInAccountDetails.delegate = self
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         imagePickerController.delegate = self
         handelSaveInAccountDetails.setTitle(NSLocalizedString("handelSaveInAccountDetails", comment: ""), for: .normal)
     }
@@ -143,9 +144,7 @@ extension AccountDetailsViewController: UIImagePickerControllerDelegate, UINavig
         { Action in self.getImage(from: .photoLibrary)}
         let dismissTitle = NSLocalizedString("dismissTitle", comment: "")
         let dismissAction = UIAlertAction(title:  dismissTitle, style: .destructive)
-        { Action in
-//            self.dismiss(animated: true, completion: nil)
-        }
+        { Action in }
         alert.addAction(cameraAction)
         alert.addAction(galaryAction)
         alert.addAction(dismissAction)
@@ -168,5 +167,12 @@ extension AccountDetailsViewController: UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+extension AccountViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

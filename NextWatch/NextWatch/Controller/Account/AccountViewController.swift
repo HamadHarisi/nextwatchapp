@@ -13,7 +13,7 @@ class AccountViewController: UIViewController {
     var selectedAccount:User?
     var selectedAccountImage:UIImage?
     let refreshControl = UIRefreshControl()
-    //
+    
     // Localization
     @IBOutlet weak var userEmailLabelInAccount: UILabel!
     @IBOutlet weak var handelSignOut: UIButton!
@@ -53,16 +53,13 @@ class AccountViewController: UIViewController {
             userImageInAccount.isUserInteractionEnabled = true
         }
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCurrentUserData()
     }
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         getCurrentUserData()
-//        title = "Account".localized
         if let selectedAccount = selectedAccount,
            let selectedImage = selectedAccountImage {
             userEmailLabelInAccount.text = selectedAccount.email
@@ -76,18 +73,6 @@ class AccountViewController: UIViewController {
     @IBAction func signOutButton(_ sender: Any)
     {
         signoutAlert()
-//        do
-//        {
-//            try Auth.auth().signOut()
-//            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController
-//            {
-//                vc.modalPresentationStyle = .fullScreen
-//                self.present(vc, animated: true, completion: nil)
-//            }
-//        } catch {
-//            print("Error In SignOut",error.localizedDescription)
-//
-//        }
     }
     func signoutAlert()
     {
@@ -108,7 +93,9 @@ class AccountViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "CancelInAccount".localized, style: .cancel, handler: nil))
         present(alert,animated: true,completion: nil)
-                                      }
+    }
+//   function for getCurrentUserData
+    
     @objc func getCurrentUserData()
     {
         let refrance = Firestore.firestore()
@@ -135,10 +122,3 @@ class AccountViewController: UIViewController {
         }
     }
 }
-//extension AccountViewController: UITextFieldDelegate
-//{
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.
-//        return true
-//    }
-//}

@@ -8,9 +8,9 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+   // private variable
     private var urlString: String = ""
-    
-//    @IBOutlet weak var addToMylistButton: UIButton!
+//    outlet variables
     @IBOutlet weak var titleInCollectionView: UILabel! {
         didSet{
             titleInCollectionView.sizeToFit()
@@ -36,19 +36,7 @@ class CollectionViewCell: UICollectionViewCell {
         {
             booktagImage.layer.cornerRadius = 7
         }
-    }
-    //    let image = UIImage(named: "custom.multiply.circle")
-////    @IBOutlet weak var myListLabel: UILabel!
-//    {
-//        didSet
-//        {
-//            myListLabel.layer.cornerRadius = 7
-//            myListLabel.layer.masksToBounds = true
-//
-////            myListLabel.text = "\(String(describing: UIImage(named: "SMNWH")!))"
-//        }
-//    }
-    
+    }    
     // Setup movies values
     func setCellWithValuesOf(_ movie:Movie) {
         updateUI(title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
@@ -89,7 +77,7 @@ class CollectionViewCell: UICollectionViewCell {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data) {
-                    self.posterInCollectionView.image = image
+                self.posterInCollectionView.image = image
                 }
             }
         }.resume()
